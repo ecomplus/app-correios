@@ -7,6 +7,13 @@ E-Com Plus app to integrate Correios calculator
 
 [Changelog](https://github.com/ecomclub/app-correios/blob/master/CHANGELOG.md)
 
+## Reference
+
+### About "Correios offline"
+
+1. https://github.com/victorhramos/correios-offline-opencart/blob/master/src/KauserCorreios/Correios.php
+2. https://suporte.boxloja.pro/article/82-correios-calculo-frete
+
 ## Environment variables sample
 
 Variable              | Value
