@@ -9,10 +9,20 @@ E-Com Plus app to integrate Correios calculator
 
 ## Reference
 
+1. https://apx-mods.e-com.plus/api/v1/calculate_shipping/schema.json?store_id=100
+2. https://www.correios.com.br/a-a-z/pdf/calculador-remoto-de-precos-e-prazos/manual-de-implementacao-do-calculo-remoto-de-precos-e-prazos
+
 ### About "Correios offline"
 
 1. https://github.com/victorhramos/correios-offline-opencart/blob/master/src/KauserCorreios/Correios.php
 2. https://suporte.boxloja.pro/article/82-correios-calculo-frete
+
+> From direct tests with Correios WS we're also
+considering by default:
+
+```js
+ValorValorDeclarado = (nVlValorDeclarado - 19.5) * 0.02
+```
 
 ## Environment variables sample
 
