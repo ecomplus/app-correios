@@ -10,7 +10,8 @@ E-Com Plus app to integrate Correios calculator
 ## Reference
 
 1. https://apx-mods.e-com.plus/api/v1/calculate_shipping/schema.json?store_id=100
-2. https://www.correios.com.br/a-a-z/pdf/calculador-remoto-de-precos-e-prazos/manual-de-implementacao-do-calculo-remoto-de-precos-e-prazos
+2. https://apx-mods.e-com.plus/api/v1/calculate_shipping/response_schema.json?store_id=100
+3. https://www.correios.com.br/a-a-z/pdf/calculador-remoto-de-precos-e-prazos/manual-de-implementacao-do-calculo-remoto-de-precos-e-prazos
 
 ### About "Correios offline"
 
