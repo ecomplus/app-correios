@@ -11,6 +11,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "@google-cloud/firestore": "2.x",
     "axios": "0.x",
     "console-files": "2.x",
     "ecomplus-app-sdk": "1.x",
