@@ -36,4 +36,9 @@ ecomAuth.catch(err => {
   }, 1000)
 })
 
-/* Run other app background processes here */
+// intervals to update Correios offline database (Firestore)
+const updateCorreiosOfflineData = require('./../lib/correios-offline/update-database')
+setTimeout(() => {
+  updateCorreiosOfflineData()
+  setInterval(updateCorreiosOfflineData, 1000 * 60 * 60 * 24)
+}, 60000)
