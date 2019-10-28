@@ -1,3 +1,7 @@
+# Firebase private account key
+serviceAccountKey.json
+*firebase-adminsdk*
+
 package-lock.json
 
 # Logs
