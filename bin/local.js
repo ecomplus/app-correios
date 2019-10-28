@@ -40,5 +40,5 @@ ecomAuth.catch(err => {
 const updateCorreiosOfflineData = require('./../lib/correios-offline/update-database')
 setTimeout(() => {
   updateCorreiosOfflineData()
-  setInterval(updateCorreiosOfflineData, 1000 * 60 * 60 * 24)
+  setInterval(updateCorreiosOfflineData, 1000 * 60 * 60 * 24 * 7)
 }, 60000)
