@@ -75,11 +75,11 @@ module.exports = appSdk => {
     // optinal predefined or configured service codes
     if (params.service_code) {
       nCdServico = params.service_code
-    } else if (Array.isArray(config.services) && config.services.length) {
+    } else if (Array.isArray(config.services) && config.services[0]) {
       nCdServico = config.services[0].service_code
-      config.services.forEach(service => {
-        nCdServico = `,${service.service}`
-      })
+      for (let i = 1; i < config.services.length; i++) {
+        nCdServico += `,${config.services[i].service}`
+      }
     }
 
     // optional params to Correios services
