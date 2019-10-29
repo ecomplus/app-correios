@@ -60,6 +60,11 @@
         "type": "array",
         "maxItems": 6,
         "items": {
+          "title": "Opção de serviço de entrega",
+          "type": "object",
+          "required": [
+            "service_code"
+          ],
           "properties": {
             "label": {
               "type": "string",
