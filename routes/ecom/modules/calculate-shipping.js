@@ -21,8 +21,8 @@ module.exports = appSdk => {
     let sDsSenha = ''
 
     // check for configured Correios contract
-    if (config.contract) {
-      const { code, password } = config.contract
+    if (config.correios_contract) {
+      const { code, password } = config.correios_contract
       if (code) {
         nCdEmpresa = code
       }
