@@ -1,9 +1,9 @@
 'use strict'
 
 // try to get freight from Correios Offline database
-const correiosOfflineClient = require('./../lib/correios-offline/client')
+const correiosOfflineClient = require(process.cwd() + '/lib/correios-offline/client')
 // calculate freight from Correios WS
-const correiosCalculate = require('./../correios-ws/calculate')
+const correiosCalculate = require(process.cwd() + '/lib/correios-ws/calculate')
 
 module.exports = appSdk => {
   return (req, res) => {
