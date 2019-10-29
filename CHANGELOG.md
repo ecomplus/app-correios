@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/ecomclub/app-correios/compare/v0.0.2...v0.0.3) (2019-10-29)
+
+
+### Features
+
+* **calculate-shipping:** handling shipping calculate request ([80938a5](https://github.com/ecomclub/app-correios/commit/80938a504c0a8581ece32aa3f54036db6c509b4f))
+* **ecom-webhooks:** add/remove Correios contracts on local database ([888c2de](https://github.com/ecomclub/app-correios/commit/888c2de4c37c7eb28c05b468f05da2ea3d951d1a))
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix reading 'correios_contract' from config ([07d32db](https://github.com/ecomclub/app-correios/commit/07d32dbc669f39cda45d86bc616abda7a2de909f))
+* **calculate-shipping:** fix reading 'services' from config ([b335937](https://github.com/ecomclub/app-correios/commit/b335937a42b44c5ddd4ddf229ce3b5174c3553b8))
+* **calculate-shipping:** fix require paths to lib ([c8438d2](https://github.com/ecomclub/app-correios/commit/c8438d20fcead90393f15c1ea6e7ed2391eb1f22))
+* **correios-offline:** fix client list method ([36c8c1a](https://github.com/ecomclub/app-correios/commit/36c8c1aefc8ea259603dddc5ee2e2cb2cafd506c))
+
 ### 0.0.2 (2019-10-28)
 
 
