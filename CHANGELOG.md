@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/ecomclub/app-correios/compare/v0.0.3...v0.0.4) (2019-10-30)
+
+
+### Bug Fixes
+
+* **local:** require correios offline client first (prevent reload) ([2609aed](https://github.com/ecomclub/app-correios/commit/2609aedace9df8181095db025ea60d256cf476e6))
+
 ### [0.0.3](https://github.com/ecomclub/app-correios/compare/v0.0.2...v0.0.3) (2019-10-29)
 
 
