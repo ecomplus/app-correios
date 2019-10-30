@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/ecomclub/app-correios/compare/v0.0.4...v0.0.5) (2019-10-30)
+
+
+### Bug Fixes
+
+* **firestore:** fix setting up firestore with firebase admin ([e042d92](https://github.com/ecomclub/app-correios/commit/e042d921520a5f088605b030405206b871a84ed6))
+
 ### [0.0.4](https://github.com/ecomclub/app-correios/compare/v0.0.3...v0.0.4) (2019-10-30)
 
 
