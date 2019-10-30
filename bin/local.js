@@ -37,14 +37,18 @@ ecomAuth.catch(err => {
 })
 
 // intervals to update Correios offline database (Firestore)
-const updateCorreiosOfflineData = () => {
-  require('./../lib/correios-offline/update-database')()
+const updateCorreiosOfflineDatabase = require('./../lib/correios-offline/update-database')
+const correiosOfflineClient = require('./../lib/correios-offline/client')
+
+const correiosOfflineTask = () => {
+  updateCorreiosOfflineDatabase()
   // clear documents older than 15 days ago
   const date = new Date()
   date.setDate(date.getDate() - 15)
-  require('./../lib/correios-offline/client').deleteBeforeDate(date)
+  correiosOfflineClient.deleteBeforeDate(date)
 }
+
 setTimeout(() => {
-  updateCorreiosOfflineData()
-  setInterval(updateCorreiosOfflineData, 1000 * 60 * 60 * 24 * 7)
+  correiosOfflineTask()
+  setInterval(correiosOfflineTask, 1000 * 60 * 60 * 24 * 7)
 }, 60000)
