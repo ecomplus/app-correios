@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/ecomclub/app-correios/compare/v0.0.6...v0.0.7) (2019-10-30)
+
+
+### Bug Fixes
+
+* **calculate:** fix getting data from axios response (correios ws) ([cd8e8cc](https://github.com/ecomclub/app-correios/commit/cd8e8ccaf9d33e22ba8607937ee3897bf78dcc82))
+
 ### [0.0.6](https://github.com/ecomclub/app-correios/compare/v0.0.5...v0.0.6) (2019-10-30)
 
 
