@@ -2,8 +2,15 @@
 
 // try to get freight from Correios Offline database
 const correiosOfflineClient = require(process.cwd() + '/lib/correios-offline/client')
+// list of CEPs saved to Correios Offline
+const zipCodeRanges = require(process.cwd() + '/assets/correios-offline/zip-code-ranges.json')
 // calculate freight from Correios WS
 const correiosCalculate = require(process.cwd() + '/lib/correios-ws/calculate')
+
+// find best matched zip code from mocked list
+const findBaseZipCode = zipCode => zipCodeRanges.find(zipCodeRange => {
+  return zipCodeRange[0] <= zipCode && zipCodeRange[1] >= zipCode
+})
 
 module.exports = appSdk => {
   return (req, res) => {
@@ -175,6 +182,9 @@ module.exports = appSdk => {
           }
         }
 
+        // handle delay to send Correios offline request
+        // prefer Correios WS
+        let correiosOfflineTimer
         correiosCalculate({
           sCepOrigem,
           sCepDestino,
@@ -186,56 +196,62 @@ module.exports = appSdk => {
           nVlPeso,
           nVlValorDeclarado
         })
-          .then(resolve)
+          .then(result => {
+            clearTimeout(correiosOfflineTimer)
+            resolve(result)
+          })
           .catch(handleErrors)
 
         if (!config.disable_correios_offline) {
-          correiosOfflineClient.list({
-            sCepOrigem,
-            sCepDestino,
-            nCdEmpresa,
-            // optinal predefined service code
-            Codigo: params.service_code
-          })
-
-            .then(results => {
-              // filter results firts
-              const validResults = results.filter(result => {
-                if (nCdServico) {
-                  // check results service code
-                  const availableServiceCodes = nCdServico.split(',')
-                  if (availableServiceCodes.indexOf(result.Codigo) === -1) {
-                    // service not available
-                    return false
-                  }
-                }
-                // also removes results with low weight
-                return result.nVlPeso >= nVlPeso
-              })
-
-              if (validResults.length) {
-                // resolve with best result per service code only
-                const cServico = validResults.reduce((bestResults, result) => {
-                  const index = bestResults.findIndex(({ Codigo }) => Codigo === result.Codigo)
-                  if (index > -1) {
-                    // keep lowest weight
-                    if (bestResults[index].nVlPeso > result.nVlPeso) {
-                      // overwrite result object
-                      bestResults[index] = result
-                    }
-                  } else {
-                    // any result for current service code yet
-                    // add new result object
-                    bestResults.push(result)
-                  }
-                }, [])
-                resolve({ cServico, fromOffline: true })
-              } else {
-                handleErrors(new Error('Results from offline data invalidated'))
-              }
+          const correiosOfflineDelay = config.correios_offline_delay || 3000
+          correiosOfflineTimer = setTimeout(() => {
+            correiosOfflineClient.list({
+              sCepOrigem: findBaseZipCode(sCepOrigem),
+              sCepDestino: findBaseZipCode(sCepDestino),
+              nCdEmpresa,
+              // optinal predefined service code
+              Codigo: params.service_code
             })
 
-            .catch(handleErrors)
+              .then(results => {
+                // filter results firts
+                const validResults = results.filter(result => {
+                  if (nCdServico) {
+                    // check results service code
+                    const availableServiceCodes = nCdServico.split(',')
+                    if (availableServiceCodes.indexOf(result.Codigo) === -1) {
+                      // service not available
+                      return false
+                    }
+                  }
+                  // also removes results with low weight
+                  return result.nVlPeso >= nVlPeso
+                })
+
+                if (validResults.length) {
+                  // resolve with best result per service code only
+                  const cServico = validResults.reduce((bestResults, result) => {
+                    const index = bestResults.findIndex(({ Codigo }) => Codigo === result.Codigo)
+                    if (index > -1) {
+                      // keep lowest weight
+                      if (bestResults[index].nVlPeso > result.nVlPeso) {
+                        // overwrite result object
+                        bestResults[index] = result
+                      }
+                    } else {
+                      // any result for current service code yet
+                      // add new result object
+                      bestResults.push(result)
+                    }
+                  }, [])
+                  resolve({ cServico, fromOffline: true })
+                } else {
+                  handleErrors(new Error('Results from offline data invalidated'))
+                }
+              })
+
+              .catch(handleErrors)
+          }, correiosOfflineDelay)
         }
       })
 
@@ -257,6 +273,10 @@ module.exports = appSdk => {
           }) => {
             if (!Erro || Erro === '0') {
               if (fromOffline) {
+                if (config.correios_offline_value_margin) {
+                  // percentual addition/discount for Correios offline results
+                  Valor *= (1 + config.correios_offline_value_margin / 100)
+                }
                 ValorSemAdicionais = Valor
                 // sum additional services to total value
                 if (nVlValorDeclarado) {
