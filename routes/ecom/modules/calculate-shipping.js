@@ -373,7 +373,10 @@ module.exports = appSdk => {
                 shipping_line: shippingLine
               })
             } else {
-              errorMsg = `Correios erro ${Erro}: ${MsgErro}`
+              errorMsg = `Correios erro ${Erro}`
+              if (typeof MsgErro === 'string') {
+                errorMsg += `: ${MsgErro}`
+              }
             }
           })
 
