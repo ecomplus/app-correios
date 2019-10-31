@@ -194,7 +194,6 @@ module.exports = appSdk => {
             sCepOrigem,
             sCepDestino,
             nCdEmpresa,
-            sDsSenha,
             // optinal predefined service code
             Codigo: params.service_code
           })
