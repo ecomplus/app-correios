@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/ecomclub/app-correios/compare/v0.0.12...v0.0.13) (2019-10-31)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix finding matched zip code from mocked list ([1734a96](https://github.com/ecomclub/app-correios/commit/1734a96844e86f57475ed4092f49c4462ddf0a22))
+* **calculate-shipping:** prefer ws result, add margin to offline value ([e86dd68](https://github.com/ecomclub/app-correios/commit/e86dd68a63d5605df32701aa2660d2162b06be88))
+* **correios-offline:** fix handling zip code ranges ([2c91a17](https://github.com/ecomclub/app-correios/commit/2c91a179d60fff160c36c0d799670f69c21ca742))
+
 ### [0.0.12](https://github.com/ecomclub/app-correios/compare/v0.0.11...v0.0.12) (2019-10-31)
 
 
