@@ -241,8 +241,9 @@ module.exports = appSdk => {
       })
 
       firstCalculateResult.then(({ Servicos, cServico, fromOffline }) => {
-        const services = Servicos ? Servicos.cServico : cServico
-        if (Array.isArray(services)) {
+        const services = Array.isArray(Servicos) ? Servicos
+          : Array.isArray(Servicos.cServico) ? Servicos.cServico : [Servicos.cServico]
+        if (services[0] && services[0].Codigo) {
           let errorMsg
           services.forEach(({
             Codigo,
