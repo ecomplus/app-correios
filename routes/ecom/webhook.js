@@ -33,27 +33,32 @@ module.exports = appSdk => {
 
         .then(config => {
           // check contract info
-          if (config.correios_contract) {
-            const zip = config.zip
-            const code = config.correios_contract.code
-            const password = config.correios_contract.password
-            if (
-              typeof zip === 'string' && zip &&
-              typeof code === 'string' && code &&
-              typeof password === 'string' && password
-            ) {
+          const zip = config.zip
+          if (typeof zip === 'string' && zip) {
+            let code = ''
+            let password = ''
+            let serviceCodes = ''
+            if (config.correios_contract) {
+              if (typeof config.correios_contract.code === 'string') {
+                code = config.correios_contract.code
+              }
+              if (typeof config.correios_contract.password === 'string') {
+                password = config.correios_contract.password
+              }
+
               // concat service codes string
-              let serviceCodes = ''
               if (Array.isArray(config.services) && config.services[0]) {
                 serviceCodes = config.services[0].service_code
-                for (let i = 1; i < config.services.length; i++) {
-                  serviceCodes += `,${config.services[i].service}`
+                if (config.services.length > 1) {
+                  serviceCodes += `,${config.services[1].service_code}`
                 }
               }
-              // save new contract info
-              return save(storeId, zip, code, password, serviceCodes)
             }
+
+            // save new contract info
+            return save(storeId, zip, code, password, serviceCodes)
           }
+
           // don't have contract to save
           const err = new Error()
           err.name = SKIP_TRIGGER_NAME
