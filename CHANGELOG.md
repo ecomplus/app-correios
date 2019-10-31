@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/ecomclub/app-correios/compare/v0.0.7...v0.0.8) (2019-10-31)
+
+
+### Bug Fixes
+
+* **correios-ws:** limit up to 1 service / request ([b452081](https://github.com/ecomclub/app-correios/commit/b452081628f164e430b865f7eda7744f94755cfc))
+
 ### [0.0.7](https://github.com/ecomclub/app-correios/compare/v0.0.6...v0.0.7) (2019-10-30)
 
 
