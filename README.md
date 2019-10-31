@@ -16,7 +16,8 @@ E-Com Plus app to integrate Correios calculator
 ### About "Correios offline"
 
 1. https://github.com/victorhramos/correios-offline-opencart/blob/master/src/KauserCorreios/Correios.php
-2. https://suporte.boxloja.pro/article/82-correios-calculo-frete
+2. https://suporte.boxloja.pro/article/90-faixa-de-ceps-do-brasil
+3. https://suporte.boxloja.pro/article/82-correios-calculo-frete
 
 > From direct tests with Correios WS we're also
 considering by default:
