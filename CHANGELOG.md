@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/ecomclub/app-correios/compare/v0.0.13...v0.0.14) (2019-10-31)
+
+
+### Bug Fixes
+
+* **correios-offline:** handle only senders from databse (not all ranges) ([8d5b9a8](https://github.com/ecomclub/app-correios/commit/8d5b9a89e915148a5bb8e1b2eca50d8669f5a6b9))
+* **correios-offline:** shuffle zip code ranges list ([2a97e03](https://github.com/ecomclub/app-correios/commit/2a97e03a49a88a44646adbb09a4da1fc3f1b0000))
+* **ecom-webhook:** also saves zip codes without contract ([146c410](https://github.com/ecomclub/app-correios/commit/146c410d803301695c8d26061fa46cca841b2880))
+
 ### [0.0.13](https://github.com/ecomclub/app-correios/compare/v0.0.12...v0.0.13) (2019-10-31)
 
 
