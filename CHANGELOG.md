@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/ecomclub/app-correios/compare/v0.0.11...v0.0.12) (2019-10-31)
+
+
+### Bug Fixes
+
+* **error-msg:** fix handling MsgErro from Correios response object ([69df832](https://github.com/ecomclub/app-correios/commit/69df83286e70103f6537007269c4fdd20e6ffb5b))
+
 ### [0.0.11](https://github.com/ecomclub/app-correios/compare/v0.0.10...v0.0.11) (2019-10-31)
 
 
