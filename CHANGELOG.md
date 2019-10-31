@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/ecomclub/app-correios/compare/v0.0.10...v0.0.11) (2019-10-31)
+
+
+### Bug Fixes
+
+* **correios-offline:** fix saved data, skip same zip codes ([6fd8752](https://github.com/ecomclub/app-correios/commit/6fd875281cb12da50818dc82ec75d10297a2e0b5))
+
 ### [0.0.10](https://github.com/ecomclub/app-correios/compare/v0.0.9...v0.0.10) (2019-10-31)
 
 
