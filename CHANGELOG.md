@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/ecomclub/app-correios/compare/v0.0.8...v0.0.9) (2019-10-31)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix mounting services from calculate result ([c9d7b6f](https://github.com/ecomclub/app-correios/commit/c9d7b6fede59dc6158fb7dcf1faad1ec6e6a776c))
+* **correios-offline:** fix mounting services array ([4aad3c5](https://github.com/ecomclub/app-correios/commit/4aad3c5176dce9396385f68ece10dfbccd0c87a4))
+* **correios-ws:** overwrite nCdServico, merge promises results ([f99409f](https://github.com/ecomclub/app-correios/commit/f99409f382ddef316729a64a5dcbea7de3864b5d))
+
 ### [0.0.8](https://github.com/ecomclub/app-correios/compare/v0.0.7...v0.0.8) (2019-10-31)
 
 
