@@ -8,9 +8,15 @@ const zipCodeRanges = require(process.cwd() + '/assets/correios-offline/zip-code
 const correiosCalculate = require(process.cwd() + '/lib/correios-ws/calculate')
 
 // find best matched zip code from mocked list
-const findBaseZipCode = zipCode => zipCodeRanges.find(zipCodeRange => {
-  return zipCodeRange[0] <= zipCode && zipCodeRange[1] >= zipCode
-})
+const findBaseZipCode = zipCode => {
+  const zipCodeRange = zipCodeRanges.find(zipCodeRange => {
+    return zipCodeRange[0] <= zipCode && zipCodeRange[1] >= zipCode
+  })
+  if (zipCodeRange) {
+    return zipCodeRange[0]
+  }
+  return null
+}
 
 module.exports = appSdk => {
   return (req, res) => {
@@ -203,55 +209,60 @@ module.exports = appSdk => {
           .catch(handleErrors)
 
         if (!config.disable_correios_offline) {
-          const correiosOfflineDelay = config.correios_offline_delay || 3000
-          correiosOfflineTimer = setTimeout(() => {
-            correiosOfflineClient.list({
-              sCepOrigem: findBaseZipCode(sCepOrigem),
-              sCepDestino: findBaseZipCode(sCepDestino),
-              nCdEmpresa,
-              // optinal predefined service code
-              Codigo: params.service_code
-            })
+          const offlineListParams = {
+            sCepOrigem: nCdEmpresa ? sCepOrigem : findBaseZipCode(sCepOrigem),
+            sCepDestino: findBaseZipCode(sCepDestino),
+            nCdEmpresa,
+            // optinal predefined service code
+            Codigo: params.service_code
+          }
 
-              .then(results => {
-                // filter results firts
-                const validResults = results.filter(result => {
-                  if (nCdServico) {
-                    // check results service code
-                    const availableServiceCodes = nCdServico.split(',')
-                    if (availableServiceCodes.indexOf(result.Codigo) === -1) {
-                      // service not available
-                      return false
+          if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
+            // start timer to send Correios offline request
+            const correiosOfflineDelay = config.correios_offline_delay || 3000
+            correiosOfflineTimer = setTimeout(() => {
+              correiosOfflineClient.list(offlineListParams)
+
+                .then(results => {
+                  // filter results firts
+                  const validResults = results.filter(result => {
+                    if (nCdServico) {
+                      // check results service code
+                      const availableServiceCodes = nCdServico.split(',')
+                      if (availableServiceCodes.indexOf(result.Codigo) === -1) {
+                        // service not available
+                        return false
+                      }
                     }
+                    // also removes results with low weight
+                    return result.nVlPeso >= nVlPeso
+                  })
+
+                  if (validResults.length) {
+                    // resolve with best result per service code only
+                    const cServico = validResults.reduce((bestResults, result) => {
+                      const index = bestResults.findIndex(({ Codigo }) => Codigo === result.Codigo)
+                      if (index > -1) {
+                        // keep lowest weight
+                        if (bestResults[index].nVlPeso > result.nVlPeso) {
+                          // overwrite result object
+                          bestResults[index] = result
+                        }
+                      } else {
+                        // any result for current service code yet
+                        // add new result object
+                        bestResults.push(result)
+                      }
+                    }, [])
+                    resolve({ cServico, fromOffline: true })
+                  } else {
+                    handleErrors(new Error('Results from offline data invalidated'))
                   }
-                  // also removes results with low weight
-                  return result.nVlPeso >= nVlPeso
                 })
 
-                if (validResults.length) {
-                  // resolve with best result per service code only
-                  const cServico = validResults.reduce((bestResults, result) => {
-                    const index = bestResults.findIndex(({ Codigo }) => Codigo === result.Codigo)
-                    if (index > -1) {
-                      // keep lowest weight
-                      if (bestResults[index].nVlPeso > result.nVlPeso) {
-                        // overwrite result object
-                        bestResults[index] = result
-                      }
-                    } else {
-                      // any result for current service code yet
-                      // add new result object
-                      bestResults.push(result)
-                    }
-                  }, [])
-                  resolve({ cServico, fromOffline: true })
-                } else {
-                  handleErrors(new Error('Results from offline data invalidated'))
-                }
-              })
-
-              .catch(handleErrors)
-          }, correiosOfflineDelay)
+                .catch(handleErrors)
+            }, correiosOfflineDelay)
+          }
         }
       })
 
