@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/ecomclub/app-correios/compare/v0.0.9...v0.0.10) (2019-10-31)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** doesn't pass sDsSenha to list, only nCdEmpresa ([bb7770f](https://github.com/ecomclub/app-correios/commit/bb7770f19a88aa72f90a9434846d40a79093b6df))
+* **correios-offline:** fix saved data, stop trying when get error -2 ([e2b68f6](https://github.com/ecomclub/app-correios/commit/e2b68f6ba53e94a2b3529929d502660b379a60e3))
+* **zip-codes:** fix mocked zip codes for correios offline ([260104f](https://github.com/ecomclub/app-correios/commit/260104f406167d4c536121fc785c107bf32bb724))
+
 ### [0.0.9](https://github.com/ecomclub/app-correios/compare/v0.0.8...v0.0.9) (2019-10-31)
 
 
