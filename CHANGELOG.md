@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/ecomclub/app-correios/compare/v0.1.4...v0.1.5) (2019-11-01)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix price strings to number ('Valor') ([aff95f5](https://github.com/ecomclub/app-correios/commit/aff95f5907b3d4cc2cc7b937df232c8aaad2b923))
+
 ### [0.1.4](https://github.com/ecomclub/app-correios/compare/v0.1.3...v0.1.4) (2019-11-01)
 
 
