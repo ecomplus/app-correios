@@ -1,5 +1,7 @@
 'use strict'
 
+// log on files
+const logger = require('console-files')
 // read configured E-Com Plus app data
 const getConfig = require(process.cwd() + '/lib/store-api/get-config')
 // add/remove Correios contracts on local database
@@ -75,7 +77,7 @@ module.exports = appSdk => {
             // trigger ignored by app configuration
             res.send(ECHO_SKIP)
           } else {
-            // logger.error(err)
+            logger.error(err)
             // request to Store API with error response
             // return error status code
             res.status(500)
