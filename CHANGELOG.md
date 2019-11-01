@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/ecomclub/app-correios/compare/v0.1.1...v0.1.2) (2019-11-01)
+
+
+### Bug Fixes
+
+* **ecom-webhook:** importing remove, save from lib database correctly ([6e303b8](https://github.com/ecomclub/app-correios/commit/6e303b863fc180c7de8cd8432359d6e08d956f24))
+
 ### [0.1.1](https://github.com/ecomclub/app-correios/compare/v0.1.0...v0.1.1) (2019-11-01)
 
 
