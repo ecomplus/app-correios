@@ -3,7 +3,7 @@
 // read configured E-Com Plus app data
 const getConfig = require(process.cwd() + '/lib/store-api/get-config')
 // add/remove Correios contracts on local database
-const { save, remove } = require(process.cwd() + '/lib/store-api/get-config')
+const { save, remove } = require(process.cwd() + '/lib/database')
 
 const SKIP_TRIGGER_NAME = 'SkipTrigger'
 const ECHO_SUCCESS = 'SUCCESS'
