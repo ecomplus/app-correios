@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/ecomclub/app-correios/compare/v0.1.2...v0.1.3) (2019-11-01)
+
+
+### Bug Fixes
+
+* **ecom-webhook:** fix getting config (hidden) and parsing zip ([3865f27](https://github.com/ecomclub/app-correios/commit/3865f2795a294e24096a58568f8e6af3ec0f229c))
+
 ### [0.1.2](https://github.com/ecomclub/app-correios/compare/v0.1.1...v0.1.2) (2019-11-01)
 
 
