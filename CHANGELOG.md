@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/ecomclub/app-correios/compare/v0.0.14...v0.1.0) (2019-11-01)
+
+
+### Bug Fixes
+
+* **local:** stop checkout triggers.length to setup procedures ([27f0e13](https://github.com/ecomclub/app-correios/commit/27f0e134c658c42d8e3503865cd1b158ad76df52))
+* **zip-code-string:** removing not numbers chars ([4562849](https://github.com/ecomclub/app-correios/commit/4562849987e97f0045a3822fec2b82f6d1380dd4))
+
 ### [0.0.14](https://github.com/ecomclub/app-correios/compare/v0.0.13...v0.0.14) (2019-10-31)
 
 
