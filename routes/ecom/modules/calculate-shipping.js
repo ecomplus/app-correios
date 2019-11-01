@@ -278,6 +278,7 @@ module.exports = appSdk => {
             if (!Erro || Erro === '0') {
               // fix price strings to number
               ;[
+                'Valor',
                 'ValorSemAdicionais',
                 'ValorMaoPropria',
                 'ValorAvisoRecebimento',
