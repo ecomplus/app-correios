@@ -271,18 +271,30 @@ module.exports = appSdk => {
           : Array.isArray(Servicos.cServico) ? Servicos.cServico : [Servicos.cServico]
         if (services[0] && services[0].Codigo) {
           let errorMsg
-          services.forEach(({
-            Codigo,
-            Valor,
-            ValorSemAdicionais,
-            ValorMaoPropria,
-            ValorAvisoRecebimento,
-            ValorValorDeclarado,
-            PrazoEntrega,
-            Erro,
-            MsgErro
-          }) => {
+          services.forEach(service => {
+            // check error first
+            const { Erro, MsgErro } = service
+
             if (!Erro || Erro === '0') {
+              // fix price strings to number
+              ;[
+                'ValorSemAdicionais',
+                'ValorMaoPropria',
+                'ValorAvisoRecebimento',
+                'ValorValorDeclarado'
+              ].forEach(field => {
+                service[field] = parseFloat(service[field].replace(',', '.'))
+              })
+              let {
+                Codigo,
+                Valor,
+                ValorSemAdicionais,
+                ValorMaoPropria,
+                ValorAvisoRecebimento,
+                ValorValorDeclarado,
+                PrazoEntrega
+              } = service
+
               if (fromOffline) {
                 if (config.correios_offline_value_margin) {
                   // percentual addition/discount for Correios offline results
@@ -306,7 +318,15 @@ module.exports = appSdk => {
               }
 
               // find respective configured service label
-              let label = `Correios ${Codigo}`
+              let serviceName
+              switch (Codigo) {
+                case '04014':
+                  serviceName = 'SEDEX'
+                  break
+                case '04510':
+                  serviceName = 'PAC'
+              }
+              let label = serviceName || `Correios ${Codigo}`
               if (Array.isArray(config.services)) {
                 for (let i = 0; i < config.services.length; i++) {
                   const service = config.services[i]
@@ -333,7 +353,7 @@ module.exports = appSdk => {
                 discount: 0,
                 total_price: Valor,
                 delivery_time: {
-                  days: PrazoEntrega,
+                  days: parseInt(PrazoEntrega, 10),
                   working_days: true
                 },
                 posting_deadline: {
@@ -398,9 +418,7 @@ module.exports = appSdk => {
                 // https://informederendimentos.com/consulta/cnpj-correios/
                 carrier_doc_number: '34028316000103',
                 service_code: Codigo,
-                service_name: Codigo === '04014' ? 'SEDEX'
-                  : Codigo === '04510' ? 'PAC'
-                    : label,
+                service_name: serviceName || label,
                 shipping_line: shippingLine
               })
             } else {
