@@ -27,7 +27,7 @@ module.exports = appSdk => {
         .then(() => {
           if (!trigger.body.correios_contract || !trigger.body.zip || !trigger.body.services) {
             // get app configured options
-            return getConfig({ appSdk, storeId })
+            return getConfig({ appSdk, storeId }, true)
           } else {
             return trigger.body
           }
@@ -35,8 +35,8 @@ module.exports = appSdk => {
 
         .then(config => {
           // check contract info
-          const zip = config.zip.replace(/\D/g, '')
-          if (typeof zip === 'string' && zip) {
+          const zip = typeof config.zip === 'string' && config.zip.replace(/\D/g, '')
+          if (zip) {
             let code = ''
             let password = ''
             let serviceCodes = ''
