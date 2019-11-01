@@ -33,7 +33,7 @@ module.exports = appSdk => {
 
         .then(config => {
           // check contract info
-          const zip = config.zip
+          const zip = config.zip.replace(/\D/g, '')
           if (typeof zip === 'string' && zip) {
             let code = ''
             let password = ''

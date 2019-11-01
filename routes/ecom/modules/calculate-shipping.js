@@ -80,9 +80,9 @@ module.exports = appSdk => {
           message: 'Zip code is unset on app hidden data (merchant must configure the app)'
         })
       }
-      sCepOrigem = config.zip
+      sCepOrigem = config.zip.replace(/\D/g, '')
     } else {
-      sCepOrigem = params.from.zip
+      sCepOrigem = params.from.zip.replace(/\D/g, '')
     }
 
     // optinal predefined or configured service codes
