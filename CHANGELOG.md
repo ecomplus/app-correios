@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/ecomclub/app-correios/compare/v0.1.5...v0.1.6) (2019-11-12)
+
+
+### Bug Fixes
+
+* **correios-offline:** update database lib method returning promise ([40f02d6](https://github.com/ecomclub/app-correios/commit/40f02d63239028ad8f8ab439ce182eb1b4561ade))
+
 ### [0.1.5](https://github.com/ecomclub/app-correios/compare/v0.1.4...v0.1.5) (2019-11-01)
 
 
