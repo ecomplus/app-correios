@@ -388,7 +388,7 @@ module.exports = appSdk => {
                     rule &&
                     (!rule.service_code || rule.service_code === Codigo) &&
                     (!rule.zip_range ||
-                      (rule.zip_range.min >= sCepDestino && rule.zip_range.max <= sCepDestino)) &&
+                      (rule.zip_range.min <= sCepDestino && rule.zip_range.max >= sCepDestino)) &&
                     !(rule.min_amount > nVlValorDeclarado)
                   ) {
                     // valid shipping rule
