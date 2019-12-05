@@ -290,6 +290,7 @@ module.exports = appSdk => {
           services.forEach(service => {
             // check error first
             const { Erro, MsgErro } = service
+            logger.log(Erro)
 
             if (!Erro || Erro === '0') {
               // fix price strings to number
@@ -300,7 +301,15 @@ module.exports = appSdk => {
                 'ValorAvisoRecebimento',
                 'ValorValorDeclarado'
               ].forEach(field => {
-                service[field] = parseFloat(service[field].replace(',', '.'))
+                switch (typeof service[field]) {
+                  case 'number':
+                    break
+                  case 'string':
+                    service[field] = parseFloat(service[field].replace(',', '.'))
+                    break
+                  default:
+                    service[field] = 0
+                }
               })
               let {
                 Codigo,
