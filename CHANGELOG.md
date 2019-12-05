@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/ecomclub/app-correios/compare/v0.2.0...v0.2.1) (2019-12-05)
+
+
+### Bug Fixes
+
+* **correios-ws:** stop simulating Correios offline ([fc3337f](https://github.com/ecomclub/app-correios/commit/fc3337fa1c331e7875a8e1bf0b390201b05482a5))
+
 ## [0.2.0](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.7...v0.2.0) (2019-12-05)
 
 ### [0.1.8](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.7...v0.1.8) (2019-12-05)
