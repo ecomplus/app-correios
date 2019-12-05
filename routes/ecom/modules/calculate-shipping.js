@@ -1,5 +1,7 @@
 'use strict'
 
+// log on files
+const logger = require('console-files')
 // try to get freight from Correios Offline database
 const correiosOfflineClient = require(process.cwd() + '/lib/correios-offline/client')
 // list of CEPs saved to Correios Offline
@@ -255,6 +257,7 @@ module.exports = appSdk => {
                       }
                       return bestResults
                     }, [])
+                    logger.log(cServico)
                     resolve({ cServico, fromOffline: true })
                   } else {
                     handleErrors(new Error('Results from offline data invalidated'))
@@ -268,8 +271,19 @@ module.exports = appSdk => {
       })
 
       firstCalculateResult.then(({ Servicos, cServico, fromOffline }) => {
-        const services = Array.isArray(Servicos) ? Servicos
-          : Array.isArray(Servicos.cServico) ? Servicos.cServico : [Servicos.cServico]
+        // set services array from `Servicos` or `cServico`
+        let services
+        if (Servicos) {
+          if (Array.isArray(Servicos)) {
+            services = Servicos
+          } else if (Servicos.cServico) {
+            services = Array.isArray(Servicos.cServico) ? Servicos.cServico : [Servicos.cServico]
+          }
+        }
+        if (!services) {
+          services = Array.isArray(cServico) ? cServico : [cServico]
+        }
+
         if (services[0] && services[0].Codigo) {
           let errorMsg
           services.forEach(service => {
