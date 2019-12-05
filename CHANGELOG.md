@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 ### [0.1.8-alpha.0](https://github.com/ecomclub/app-correios/compare/v0.1.7...v0.1.8-alpha.0) (2019-12-05)
+=======
+### [0.1.8](https://github.com/ecomclub/app-correios/compare/v0.1.7...v0.1.8) (2019-12-04)
+>>>>>>> d1493e84a449f7dfdeff43d080f029bf2575b2e2
 
 
 ### Bug Fixes
