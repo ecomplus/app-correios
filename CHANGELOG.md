@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8-alpha.0](https://github.com/ecomclub/app-correios/compare/v0.1.7...v0.1.8-alpha.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix checking shipping rules zip range ([b1e509f](https://github.com/ecomclub/app-correios/commit/b1e509fc738f42989e4387356cc5957b84fba442))
+
 ### [0.1.7](https://github.com/ecomclub/app-correios/compare/v0.1.6...v0.1.7) (2019-11-13)
 
 
