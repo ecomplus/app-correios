@@ -1,5 +1,7 @@
 'use strict'
 
+// log on files
+const logger = require('console-files')
 // try to get freight from Correios Offline database
 const correiosOfflineClient = require(process.cwd() + '/lib/correios-offline/client')
 // list of CEPs saved to Correios Offline
@@ -216,14 +218,17 @@ module.exports = appSdk => {
             // optinal predefined service code
             Codigo: params.service_code
           }
+          logger.log(offlineListParams)
 
           if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
             // start timer to send Correios offline request
             const correiosOfflineDelay = config.correios_offline_delay || 3000
             correiosOfflineTimer = setTimeout(() => {
+              logger.log('Call Correios Offline')
               correiosOfflineClient.list(offlineListParams)
 
                 .then(results => {
+                  logger.log(results)
                   // filter results firts
                   const validResults = results.filter(result => {
                     if (nCdServico) {
