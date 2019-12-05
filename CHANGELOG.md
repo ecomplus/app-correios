@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8-alpha.4](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.3...v0.1.8-alpha.4) (2019-12-05)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix reducing results from offline database ([ba5ecfc](https://github.com/ecomclub/app-correios/commit/ba5ecfc21b41a5d64b07dfec87d6d188844895e3))
+
 ### [0.1.8-alpha.3](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.2...v0.1.8-alpha.3) (2019-12-05)
 
 ### [0.1.8-alpha.2](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.1...v0.1.8-alpha.2) (2019-12-05)
