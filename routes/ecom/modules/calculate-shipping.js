@@ -1,7 +1,5 @@
 'use strict'
 
-// log on files
-const logger = require('console-files')
 // try to get freight from Correios Offline database
 const correiosOfflineClient = require(process.cwd() + '/lib/correios-offline/client')
 // list of CEPs saved to Correios Offline
@@ -218,13 +216,11 @@ module.exports = appSdk => {
             // optinal predefined service code
             Codigo: params.service_code
           }
-          logger.log(offlineListParams)
 
           if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
             // start timer to send Correios offline request
             const correiosOfflineDelay = config.correios_offline_delay || 3000
             correiosOfflineTimer = setTimeout(() => {
-              logger.log('Call Correios Offline')
               correiosOfflineClient.list(offlineListParams)
 
                 .then(results => {
@@ -233,7 +229,6 @@ module.exports = appSdk => {
                     if (nCdServico) {
                       // check results service code
                       const availableServiceCodes = nCdServico.split(',')
-                      logger.log(availableServiceCodes)
                       if (availableServiceCodes.indexOf(result.Codigo) === -1) {
                         // service not available
                         return false
@@ -243,7 +238,6 @@ module.exports = appSdk => {
                     return result.nVlPeso >= nVlPeso
                   })
 
-                  logger.log(validResults)
                   if (validResults.length) {
                     // resolve with best result per service code only
                     const cServico = validResults.reduce((bestResults, result) => {
@@ -259,8 +253,8 @@ module.exports = appSdk => {
                         // add new result object
                         bestResults.push(result)
                       }
+                      return bestResults
                     }, [])
-                    logger.log(cServico)
                     resolve({ cServico, fromOffline: true })
                   } else {
                     handleErrors(new Error('Results from offline data invalidated'))
