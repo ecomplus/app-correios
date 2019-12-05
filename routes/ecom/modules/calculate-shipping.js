@@ -283,6 +283,7 @@ module.exports = appSdk => {
         if (!services) {
           services = Array.isArray(cServico) ? cServico : [cServico]
         }
+        logger.log(services)
 
         if (services[0] && services[0].Codigo) {
           let errorMsg
@@ -310,6 +311,7 @@ module.exports = appSdk => {
                 ValorValorDeclarado,
                 PrazoEntrega
               } = service
+              logger.log(Codigo)
 
               if (fromOffline) {
                 if (config.correios_offline_value_margin) {
@@ -332,6 +334,7 @@ module.exports = appSdk => {
                   Valor += ValorAvisoRecebimento
                 }
               }
+              logger.log(Valor)
 
               // find respective configured service label
               let serviceName
