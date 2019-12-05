@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8-alpha.7](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.6...v0.1.8-alpha.7) (2019-12-05)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** check price props typeof ([cb30ff0](https://github.com/ecomclub/app-correios/commit/cb30ff01242b8705c27ac3ac72ceb58f9a698e85))
+
 ### [0.1.8-alpha.6](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.5...v0.1.8-alpha.6) (2019-12-05)
 
 ### [0.1.8-alpha.5](https://github.com/ecomclub/app-correios/compare/v0.1.8-alpha.4...v0.1.8-alpha.5) (2019-12-05)
