@@ -228,12 +228,12 @@ module.exports = appSdk => {
               correiosOfflineClient.list(offlineListParams)
 
                 .then(results => {
-                  logger.log(results)
                   // filter results firts
                   const validResults = results.filter(result => {
                     if (nCdServico) {
                       // check results service code
                       const availableServiceCodes = nCdServico.split(',')
+                      logger.log(availableServiceCodes)
                       if (availableServiceCodes.indexOf(result.Codigo) === -1) {
                         // service not available
                         return false
@@ -243,6 +243,7 @@ module.exports = appSdk => {
                     return result.nVlPeso >= nVlPeso
                   })
 
+                  logger.log(validResults)
                   if (validResults.length) {
                     // resolve with best result per service code only
                     const cServico = validResults.reduce((bestResults, result) => {
@@ -259,6 +260,7 @@ module.exports = appSdk => {
                         bestResults.push(result)
                       }
                     }, [])
+                    logger.log(cServico)
                     resolve({ cServico, fromOffline: true })
                   } else {
                     handleErrors(new Error('Results from offline data invalidated'))
