@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/ecomclub/app-correios/compare/v0.2.3...v0.2.4) (2019-12-11)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix checking shipping services to return error ([4e04ef3](https://github.com/ecomclub/app-correios/commit/4e04ef3ec033ec0449a7f11f113f9028ac53195e))
+
 ### [0.2.3](https://github.com/ecomclub/app-correios/compare/v0.2.2...v0.2.3) (2019-12-11)
 
 
