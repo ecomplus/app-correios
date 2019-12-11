@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/ecomclub/app-correios/compare/v0.2.2...v0.2.3) (2019-12-11)
+
+
+### Bug Fixes
+
+* **correios-ws:** check for minimum 'nVlValorDeclarado' ([f7f256e](https://github.com/ecomclub/app-correios/commit/f7f256e251c2038bbada81cdd8e3a7b54bae314a))
+
 ### [0.2.2](https://github.com/ecomclub/app-correios/compare/v0.2.2-0...v0.2.2) (2019-12-05)
 
 
