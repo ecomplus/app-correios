@@ -450,7 +450,7 @@ module.exports = appSdk => {
             }
           })
 
-          return !response.shipping_services && errorMsg
+          return !response.shipping_services.length && errorMsg
             // pass Correios error message
             ? res.status(400).send({
               error: 'CALCULATE_ERR_MSG',
