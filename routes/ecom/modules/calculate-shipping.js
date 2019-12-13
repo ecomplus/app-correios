@@ -72,7 +72,7 @@ module.exports = appSdk => {
       return
     }
 
-    const sCepDestino = params.to.zip
+    const sCepDestino = params.to.zip.replace(/\D/g, '')
     if (!params.from) {
       if (!config.zip) {
         // must have configured origin zip code to continue
