@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/ecomclub/app-correios/compare/v0.2.6...v0.2.7) (2019-12-13)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** ensure sCepDestino format (numbers only) ([14a7e25](https://github.com/ecomclub/app-correios/commit/14a7e259464bed34bd4a2598a2645938c226d66e))
+
 ### [0.2.6](https://github.com/ecomclub/app-correios/compare/v0.2.4...v0.2.6) (2019-12-13)
 
 ### [0.2.5](https://github.com/ecomclub/app-correios/compare/v0.2.4...v0.2.5) (2019-12-13)
