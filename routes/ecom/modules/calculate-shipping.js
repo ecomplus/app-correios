@@ -27,7 +27,7 @@ module.exports = appSdk => {
     const config = Object.assign({}, application.data, application.hidden_data)
 
     // Correios calculate params
-    let sCepOrigem, sCepDestino, nCdServico, sCdMaoPropria, sCdAvisoRecebimento
+    let sCepOrigem, nCdServico, sCdMaoPropria, sCdAvisoRecebimento
     let nVlPeso = 0
     let nVlValorDeclarado = 0
     let nCdEmpresa = ''
@@ -69,9 +69,10 @@ module.exports = appSdk => {
     if (!params.to) {
       // respond only with free shipping option
       res.send(response)
-    } else {
-      sCepDestino = params.to.zip
+      return
     }
+
+    const sCepDestino = params.to.zip
     if (!params.from) {
       if (!config.zip) {
         // must have configured origin zip code to continue
