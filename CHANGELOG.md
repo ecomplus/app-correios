@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.11](https://github.com/ecomclub/app-correios/compare/v0.2.10...v0.2.11) (2019-12-19)
+
+
+### Bug Fixes
+
+* **correios-ws:** check maximum delcared value (optional) ([a38a1f2](https://github.com/ecomclub/app-correios/commit/a38a1f23d94501135694510a196a1d934aa59238))
+
 ### [0.2.10](https://github.com/ecomclub/app-correios/compare/v0.2.9...v0.2.10) (2019-12-19)
 
 
