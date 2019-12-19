@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/ecomclub/app-correios/compare/v0.2.8...v0.2.9) (2019-12-19)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix getting correios ws url from service object ([1b8118a](https://github.com/ecomclub/app-correios/commit/1b8118af9bd6d24ae92fba1e45a4bd3b95ed4d09))
+
 ### [0.2.8](https://github.com/ecomclub/app-correios/compare/v0.2.7...v0.2.8) (2019-12-19)
 
 ### [0.2.7](https://github.com/ecomclub/app-correios/compare/v0.2.6...v0.2.7) (2019-12-13)
