@@ -268,7 +268,7 @@ module.exports = appSdk => {
         }
       })
 
-      firstCalculateResult.then(({ Servicos, cServico, fromOffline, url }) => {
+      firstCalculateResult.then(({ Servicos, cServico, fromOffline }) => {
         // set services array from `Servicos` or `cServico`
         let services
         if (Servicos) {
@@ -286,7 +286,7 @@ module.exports = appSdk => {
           let errorMsg
           services.forEach(service => {
             // check error first
-            const { Erro, MsgErro } = service
+            const { Erro, MsgErro, url } = service
 
             if (!Erro || Erro === '0') {
               // fix price strings to number
