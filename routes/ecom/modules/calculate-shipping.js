@@ -109,8 +109,9 @@ module.exports = appSdk => {
 
     // calculate weight and pkg value from items list
     if (params.items) {
-      const sumDimensions = {}
       params.items.forEach(({ price, quantity, dimensions, weight }) => {
+        let physicalWeight = 0
+        let cubicWeight = 1
         if (!params.subtotal) {
           nVlValorDeclarado += price * quantity
         }
@@ -119,18 +120,19 @@ module.exports = appSdk => {
         if (weight && weight.value) {
           switch (weight.unit) {
             case 'kg':
-              nVlPeso += weight.value
+              physicalWeight = weight.value
               break
             case 'g':
-              nVlPeso += weight.value / 1000
+              physicalWeight = weight.value / 1000
               break
             case 'mg':
-              nVlPeso += weight.value / 1000000
+              physicalWeight = weight.value / 1000000
           }
         }
 
         // sum total items dimensions to calculate cubic weight
         if (dimensions) {
+          const sumDimensions = {}
           for (const side in dimensions) {
             const dimension = dimensions[side]
             if (dimension && dimension.value) {
@@ -148,30 +150,26 @@ module.exports = appSdk => {
               // add/sum current side to final dimensions object
               if (dimensionValue) {
                 sumDimensions[side] = sumDimensions[side]
-                  ? sumDimensions[side] * dimensionValue
+                  ? sumDimensions[side] + dimensionValue
                   : dimensionValue
               }
             }
           }
-        }
-      })
 
-      // calculate cubic weight
-      // https://suporte.boxloja.pro/article/82-correios-calculo-frete
-      // (C x L x A) / 6.000
-      let cubicWeight = 1
-      for (const side in sumDimensions) {
-        if (sumDimensions[side]) {
-          cubicWeight *= sumDimensions[side]
+          // calculate cubic weight
+          // https://suporte.boxloja.pro/article/82-correios-calculo-frete
+          // (C x L x A) / 6.000
+          for (const side in sumDimensions) {
+            if (sumDimensions[side]) {
+              cubicWeight *= sumDimensions[side]
+            }
+          }
+          if (cubicWeight > 1) {
+            cubicWeight /= 6000
+          }
         }
-      }
-      if (cubicWeight > 1) {
-        cubicWeight /= 6000
-        if (cubicWeight > nVlPeso) {
-          // use cubic instead of phisic weight
-          nVlPeso = cubicWeight
-        }
-      }
+        nVlPeso += (quantity * (physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
+      })
 
       // send requests to both Correios offline and WS
       const firstCalculateResult = new Promise(resolve => {
