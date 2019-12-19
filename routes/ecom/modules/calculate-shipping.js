@@ -268,7 +268,7 @@ module.exports = appSdk => {
         }
       })
 
-      firstCalculateResult.then(({ Servicos, cServico, fromOffline }) => {
+      firstCalculateResult.then(({ Servicos, cServico, fromOffline, url }) => {
         // set services array from `Servicos` or `cServico`
         let services
         if (Servicos) {
@@ -447,6 +447,9 @@ module.exports = appSdk => {
               errorMsg = `Correios erro ${Erro}`
               if (typeof MsgErro === 'string') {
                 errorMsg += `: ${MsgErro}`
+              }
+              if (typeof url === 'string') {
+                errorMsg += `\n${url}`
               }
             }
           })
