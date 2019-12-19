@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/ecomclub/app-correios/compare/v0.2.9...v0.2.10) (2019-12-19)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** fix calcule physical, cubic and final weight ([7b94b4c](https://github.com/ecomclub/app-correios/commit/7b94b4ceaeca34b61c462d35aa31991fdce33661))
+
 ### [0.2.9](https://github.com/ecomclub/app-correios/compare/v0.2.8...v0.2.9) (2019-12-19)
 
 
