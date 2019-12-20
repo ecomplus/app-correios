@@ -171,6 +171,11 @@ module.exports = appSdk => {
         nVlPeso += (quantity * (physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
       })
 
+      // pre check for maximum allowed declared value
+      if (nVlValorDeclarado > 10000) {
+        nVlValorDeclarado = 10000
+      }
+
       // send requests to both Correios offline and WS
       const firstCalculateResult = new Promise(resolve => {
         let countErrors = 0
