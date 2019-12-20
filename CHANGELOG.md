@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.12](https://github.com/ecomclub/app-correios/compare/v0.2.11...v0.2.12) (2019-12-20)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** pre check for maximum allowed declared value ([a36041b](https://github.com/ecomclub/app-correios/commit/a36041ba346c4911454ac86984afb6b9cd3a35bc))
+
 ### [0.2.11](https://github.com/ecomclub/app-correios/compare/v0.2.10...v0.2.11) (2019-12-19)
 
 
