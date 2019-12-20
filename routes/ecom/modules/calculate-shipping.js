@@ -223,7 +223,7 @@ module.exports = appSdk => {
 
           if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
             // start timer to send Correios offline request
-            const correiosOfflineDelay = config.correios_offline_delay || 3000
+            const correiosOfflineDelay = config.correios_offline_delay || 4000
             correiosOfflineTimer = setTimeout(() => {
               correiosOfflineClient.list(offlineListParams)
 
