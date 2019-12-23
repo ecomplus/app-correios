@@ -439,9 +439,10 @@ module.exports = appSdk => {
               if (typeof url === 'string') {
                 // add WS URL to custom fields to facilitate debugging
                 shippingLine.custom_fields = [{
-                  field: 'correios_ws_url',
+                  field: 'correios_ws_params',
                   value: (nCdEmpresa ? url.replace(nCdEmpresa, 'c').replace(sDsSenha, 's') : url)
                     .replace(/[^?]+\?(.*)/, '$1')
+                    .replace(/(StrRetorno|nIndicaCalculo|nCdFormato|nVlDiametro)=[^&]+&?/, '')
                     .slice(0, 255)
                 }]
               }
