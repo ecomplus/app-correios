@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.15](https://github.com/ecomclub/app-correios/compare/v0.2.14...v0.2.15) (2019-12-23)
+
+
+### Bug Fixes
+
+* **correios-ws:** add url to returned cServico(s) ([585ef84](https://github.com/ecomclub/app-correios/commit/585ef84485a597b1e0a6c0885f820b5a176c10cd))
+
 ### [0.2.14](https://github.com/ecomclub/app-correios/compare/v0.2.13...v0.2.14) (2019-12-23)
 
 
