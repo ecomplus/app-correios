@@ -436,6 +436,14 @@ module.exports = appSdk => {
                 }
               }
 
+              if (typeof url === 'string') {
+                // add WS URL to custom fields to facilitate debugging
+                shippingLine.custom_fields = [{
+                  field: 'correios_ws_url',
+                  value: nCdEmpresa ? url.replace(nCdEmpresa, 'Cd').replace(sDsSenha, 'Ds') : url
+                }]
+              }
+
               // push shipping service object to response
               response.shipping_services.push({
                 label,
