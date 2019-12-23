@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.16](https://github.com/ecomclub/app-correios/compare/v0.2.15...v0.2.16) (2019-12-23)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** limit custom field value length (255) ([484bf73](https://github.com/ecomclub/app-correios/commit/484bf735efe3aa2c75d2976d1455fb6fa6f81ec2))
+
 ### [0.2.15](https://github.com/ecomclub/app-correios/compare/v0.2.14...v0.2.15) (2019-12-23)
 
 
