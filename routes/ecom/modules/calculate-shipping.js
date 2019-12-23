@@ -442,7 +442,7 @@ module.exports = appSdk => {
                   field: 'correios_ws_params',
                   value: (nCdEmpresa ? url.replace(nCdEmpresa, 'c').replace(sDsSenha, 's') : url)
                     .replace(/[^?]+\?(.*)/, '$1')
-                    .replace(/(StrRetorno|nIndicaCalculo|nCdFormato|nVlDiametro)=[^&]+&?/, '')
+                    .replace(/(StrRetorno|nIndicaCalculo|nCdFormato|nVlDiametro)=[^&]+&?/g, '')
                     .slice(0, 255)
                 }]
               }
