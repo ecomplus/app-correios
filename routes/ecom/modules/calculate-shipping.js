@@ -289,9 +289,18 @@ module.exports = appSdk => {
           let errorMsg
           services.forEach(service => {
             // check error first
-            const { Erro, MsgErro, url } = service
+            let { Erro, MsgErro, PrazoEntrega, url } = service
+            PrazoEntrega = parseInt(PrazoEntrega, 10)
+            // known Correios errors
+            switch (Erro) {
+              case '011':
+              case 11:
+                Erro = false
+                PrazoEntrega += 7
+                break
+            }
 
-            if (!Erro || Erro === '0') {
+            if ((!Erro || Erro === '0') && PrazoEntrega > 0) {
               // fix price strings to number
               ;[
                 'Valor',
@@ -316,8 +325,7 @@ module.exports = appSdk => {
                 ValorSemAdicionais,
                 ValorMaoPropria,
                 ValorAvisoRecebimento,
-                ValorValorDeclarado,
-                PrazoEntrega
+                ValorValorDeclarado
               } = service
 
               if (fromOffline) {
@@ -378,7 +386,7 @@ module.exports = appSdk => {
                 discount: 0,
                 total_price: Valor,
                 delivery_time: {
-                  days: parseInt(PrazoEntrega, 10),
+                  days: PrazoEntrega,
                   working_days: true
                 },
                 posting_deadline: {
