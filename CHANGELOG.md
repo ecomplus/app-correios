@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.20](https://github.com/ecomclub/app-correios/compare/v0.2.19...v0.2.20) (2020-01-23)
+
+
+### Bug Fixes
+
+* **correios-calculate:** add optional timeout to axios request ([3e6ce68](https://github.com/ecomclub/app-correios/commit/3e6ce68a29549521dbe3fdf37f69f2bc7528c49b))
+* **correios-calculate:** fix adding timeout to axios, default to 20000 ([0a6bfbb](https://github.com/ecomclub/app-correios/commit/0a6bfbb7a60cb83d4842303c4c9656249cce7ed7))
+
 ### [0.2.19](https://github.com/ecomclub/app-correios/compare/v0.2.18...v0.2.19) (2020-01-22)
 
 

@@ -3,7 +3,7 @@
   "private": true,
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "description": "E-Com Plus app to integrate Correios calculator",
   "main": "main.js",
   "scripts": {
