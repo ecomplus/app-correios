@@ -495,6 +495,11 @@ module.exports = appSdk => {
           message: 'Unexpected object from Correios response, please try again later'
         })
       })
+    } else {
+      res.status(400).send({
+        error: 'CALCULATE_EMPTY_CART',
+        message: 'Cannot calculate shipping without cart items'
+      })
     }
   }
 }
