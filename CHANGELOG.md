@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/ecomclub/app-correios/compare/v0.2.20...v1.0.0) (2020-01-23)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** send 400 response when no items ([f27afae](https://github.com/ecomclub/app-correios/commit/f27afaece1818099e7224fa8632d7b1bbb60fe41))
+
 ### [0.2.20](https://github.com/ecomclub/app-correios/compare/v0.2.19...v0.2.20) (2020-01-23)
 
 
