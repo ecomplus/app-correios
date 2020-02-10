@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomclub/app-correios/compare/v1.0.0...v1.0.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** check first code before set 'nCdServico' ([c411da2](https://github.com/ecomclub/app-correios/commit/c411da2f6bf9878a886ab4eae9184034a160275f))
+
 ## [1.0.0](https://github.com/ecomclub/app-correios/compare/v0.2.20...v1.0.0) (2020-01-23)
 
 
