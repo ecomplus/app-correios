@@ -264,6 +264,7 @@ module.exports = appSdk => {
                     }, [])
                     resolve({ cServico, fromOffline: true })
                   } else {
+                    logger.log(`No offline valid results for:\n${JSON.stringify(offlineListParams, null, 2)}`)
                     handleErrors(new Error('Results from offline data invalidated'))
                   }
                 })
