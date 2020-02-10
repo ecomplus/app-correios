@@ -92,9 +92,12 @@ module.exports = appSdk => {
     if (params.service_code) {
       nCdServico = params.service_code
     } else if (Array.isArray(config.services) && config.services[0]) {
-      nCdServico = config.services[0].service_code
-      for (let i = 1; i < config.services.length; i++) {
-        nCdServico += `,${config.services[i].service}`
+      const firstServiceCode = config.services[0].service_code
+      if (firstServiceCode) {
+        nCdServico = firstServiceCode
+        for (let i = 1; i < config.services.length; i++) {
+          nCdServico += `,${config.services[i].service}`
+        }
       }
     }
 
