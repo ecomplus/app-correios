@@ -344,7 +344,7 @@ module.exports = appSdk => {
                 // sum additional services to total value
                 if (nVlValorDeclarado) {
                   // https://github.com/ecomclub/app-correios#about-correios-offline
-                  ValorValorDeclarado = (nVlValorDeclarado - 19.5) * 0.02
+                  ValorValorDeclarado = (nVlValorDeclarado - 20.5) * 0.02
                   Valor += ValorValorDeclarado
                 }
                 if (sCdMaoPropria) {
