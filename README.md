@@ -23,7 +23,7 @@ E-Com Plus app to integrate Correios calculator
 considering by default:
 
 ```js
-ValorValorDeclarado = (nVlValorDeclarado - 19.5) * 0.02
+ValorValorDeclarado = (nVlValorDeclarado - 20.5) * 0.02
 ```
 
 ## Environment variables sample
