@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/ecomclub/app-correios/compare/v1.0.1...v1.0.2) (2020-02-17)
+
+
+### Bug Fixes
+
+* **declared-value:** fix to updated Correios min value (20.5) ([6aea8da](https://github.com/ecomclub/app-correios/commit/6aea8da27c8c8d64a47865e499773197445dfb71))
+
 ### [1.0.1](https://github.com/ecomclub/app-correios/compare/v1.0.0...v1.0.1) (2020-02-10)
 
 
