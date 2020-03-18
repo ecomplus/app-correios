@@ -96,7 +96,7 @@ module.exports = appSdk => {
       if (firstServiceCode) {
         nCdServico = firstServiceCode
         for (let i = 1; i < config.services.length; i++) {
-          nCdServico += `,${config.services[i].service}`
+          nCdServico += `,${config.services[i].service_code}`
         }
       }
     }
