@@ -1,11 +1,11 @@
 # app-correios
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/app-correios/badge)](https://www.codefactor.io/repository/github/ecomclub/app-correios)
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/app-correios/badge)](https://www.codefactor.io/repository/github/ecomplus/app-correios)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 E-Com Plus app to integrate Correios calculator
 
-[Changelog](https://github.com/ecomclub/app-correios/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/ecomplus/app-correios/blob/master/CHANGELOG.md)
 
 ## Reference
 
@@ -46,6 +46,6 @@ Published at https://correios.ecomplus.biz
 ### Continuous deployment
 
 When new version is **production ready**,
-[create a new release](https://github.com/ecomclub/app-correios/releases)
+[create a new release](https://github.com/ecomplus/app-correios/releases)
 (or `npm run release`) to run automatic deploy from _master_ branch
 and (re)publish the app.
