@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/ecomplus/app-correios/compare/v1.0.3...v1.0.4) (2020-04-09)
+
+
+### Bug Fixes
+
+* **ws-calculate:** do not log ECONNABORTED (ws offline) to prevent flood ([98ea510](https://github.com/ecomplus/app-correios/commit/98ea51031869819308672cfa4bd1cb68fafc514b))
+
 ### [1.0.3](https://github.com/ecomplus/app-correios/compare/v1.0.2...v1.0.3) (2020-03-18)
 
 
