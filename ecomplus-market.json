@@ -1,8 +1,8 @@
 {
   "app": {
-    "title": "Gerente de procedimentos comuns",
-    "short_description": "Automatizações para controle de estoque e status em geral",
-    "category": "inventory",
-    "icon": "https://market.e-com.plus/media/PwZXTHjUL3Kn.png"
+    "title": "Correios",
+    "short_description": "Cálculo de frete e prazo de envio via Correios",
+    "category": "shipping",
+    "icon": "https://market.e-com.plus/media/cLaNAHRjQpDn.png"
   }
 }
