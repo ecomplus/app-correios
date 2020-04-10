@@ -1,9 +1,9 @@
 {
-  "app_id": 9007,
+  "app_id": 1248,
   "state": "active",
   "title": "Correios",
   "slug": "correios",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "type": "external",
   "authentication": true,
   "auth_callback_uri": "https://correios.ecomplus.biz/ecom/auth-callback",
@@ -138,6 +138,7 @@
               "type": "string",
               "maxLength": 9,
               "pattern": "^[0-9]+$",
+              "default": "04510",
               "title": "Código do serviço"
             },
             "zip_range": {
