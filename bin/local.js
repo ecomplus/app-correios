@@ -43,10 +43,12 @@ const correiosOfflineTask = () => {
       logger.log('End Correios Offline database update')
       correiosOfflineTask()
     })
+    logger.log('Update Correios Offline started')
     // clear documents older than 120 days ago
     const date = new Date()
     date.setDate(date.getDate() - 120)
     correiosOfflineClient.deleteBeforeDate(date)
+    logger.log(`Clearing offline data before date ${date.toISOString()}`)
   }, 1000 * 60 * 10)
 }
 correiosOfflineTask()
