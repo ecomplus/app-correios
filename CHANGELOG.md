@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/ecomplus/app-correios/compare/v1.0.6...v1.0.7) (2020-06-23)
+
+
+### Bug Fixes
+
+* **contracts:** ignore empty code/passwords (trim) ([1a62af6](https://github.com/ecomplus/app-correios/commit/1a62af6152eb8278bd31a2065ffcb795d5fe3d17))
+* **correios-offline:** fix handling response from database get ([60d1572](https://github.com/ecomplus/app-correios/commit/60d157234f74334ff439af15b374040b144aedc9))
+
 ### [1.0.6](https://github.com/ecomplus/app-correios/compare/v1.0.5...v1.0.6) (2020-06-23)
 
 
