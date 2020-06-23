@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/ecomplus/app-correios/compare/v1.0.5...v1.0.6) (2020-06-23)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** validate zip for 'free_shipping_from_value' ([16244cb](https://github.com/ecomplus/app-correios/commit/16244cb52a9f6275f592bcea7d7de9ada561b5c3))
+* importing @ecomplus/application-sdk ([61a50bd](https://github.com/ecomplus/app-correios/commit/61a50bd0f76ed17f26661d6f684201469604203a))
+* **database:** prevent 'UNIQUE constraint failed' error on save ([0818bb8](https://github.com/ecomplus/app-correios/commit/0818bb8e09a5eade4503483ba00ed0efdd41de4d))
+* **deps:** update non-major, add @ecomplus/application-sdk ([ad9ea63](https://github.com/ecomplus/app-correios/commit/ad9ea634c0d1100247c47f8fc6642f4b8e21785a))
+
 ### [1.0.5](https://github.com/ecomplus/app-correios/compare/v1.0.4...v1.0.5) (2020-04-10)
 
 ### [1.0.4](https://github.com/ecomplus/app-correios/compare/v1.0.3...v1.0.4) (2020-04-09)
