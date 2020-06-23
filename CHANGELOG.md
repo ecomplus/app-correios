@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/ecomplus/app-correios/compare/v1.0.8...v1.0.9) (2020-06-23)
+
+
+### Bug Fixes
+
+* **correios-offline:** fix handling delay between error requests ([033afe0](https://github.com/ecomplus/app-correios/commit/033afe06b1e62658b318e33630b7a6e28ecc0b25))
+
 ### [1.0.8](https://github.com/ecomplus/app-correios/compare/v1.0.7...v1.0.8) (2020-06-23)
 
 ### [1.0.7](https://github.com/ecomplus/app-correios/compare/v1.0.6...v1.0.7) (2020-06-23)
