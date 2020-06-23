@@ -36,13 +36,15 @@ module.exports = appSdk => {
     let sDsSenha = ''
 
     // check for configured Correios contract
-    if (config.correios_contract) {
-      const { code, password } = config.correios_contract
+    const contract = config.correios_contract
+    if (contract) {
+      const code = typeof contract.code === 'string' && contract.code.trim()
       if (code) {
         nCdEmpresa = code
-      }
-      if (password) {
-        sDsSenha = password
+        const password = typeof contract.password === 'string' && contract.password.trim()
+        if (password) {
+          sDsSenha = password
+        }
       }
     }
 
@@ -234,10 +236,10 @@ module.exports = appSdk => {
           }
 
           if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
-            logger.log(`Trying Correios Offline for #${offlineListParams.sCepOrigem}`)
             // start timer to send Correios offline request
             const correiosOfflineDelay = config.correios_offline_delay || 4000
             correiosOfflineTimer = setTimeout(() => {
+              logger.log(`Trying Correios Offline for #${offlineListParams.sCepOrigem}`)
               correiosOfflineClient.list(offlineListParams)
 
                 .then(results => {

@@ -42,10 +42,10 @@ module.exports = appSdk => {
             let serviceCodes = ''
             if (config.correios_contract) {
               if (typeof config.correios_contract.code === 'string') {
-                code = config.correios_contract.code
+                code = config.correios_contract.code.trim()
               }
               if (typeof config.correios_contract.password === 'string') {
-                password = config.correios_contract.password
+                password = config.correios_contract.password.trim()
               }
 
               // concat service codes string
