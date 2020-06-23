@@ -29,7 +29,7 @@ module.exports = appSdk => {
     const config = Object.assign({}, application.data, application.hidden_data)
 
     // Correios calculate params
-    let sCepOrigem, nCdServico, sCdMaoPropria, sCdAvisoRecebimento
+    let nCdServico, sCdMaoPropria, sCdAvisoRecebimento
     let nVlPeso = 0
     let nVlValorDeclarado = 0
     let nCdEmpresa = ''
@@ -46,6 +46,19 @@ module.exports = appSdk => {
       }
     }
 
+    const sCepDestino = params.to ? params.to.zip.replace(/\D/g, '') : ''
+    const sCepOrigem = params.from ? params.from.zip.replace(/\D/g, '')
+      : config.zip ? config.zip.replace(/\D/g, '') : ''
+
+    const checkZipCode = rule => {
+      // validate rule zip range
+      if (sCepDestino && rule.zip_range) {
+        const { min, max } = rule.zip_range
+        return Boolean((!min || sCepDestino >= min) && (!max || sCepDestino <= max))
+      }
+      return true
+    }
+
     // start mounting response body
     // https://apx-mods.e-com.plus/api/v1/calculate_shipping/response_schema.json?store_id=100
     const response = {
@@ -55,7 +68,7 @@ module.exports = appSdk => {
     if (Array.isArray(config.shipping_rules)) {
       for (let i = 0; i < config.shipping_rules.length; i++) {
         const rule = config.shipping_rules[i]
-        if (rule.free_shipping) {
+        if (rule.free_shipping && checkZipCode(rule)) {
           if (!rule.min_amount) {
             response.free_shipping_from_value = 0
             break
@@ -74,18 +87,12 @@ module.exports = appSdk => {
       return
     }
 
-    const sCepDestino = params.to.zip.replace(/\D/g, '')
-    if (!params.from) {
-      if (!config.zip) {
-        // must have configured origin zip code to continue
-        return res.status(400).send({
-          error: 'CALCULATE_ERR',
-          message: 'Zip code is unset on app hidden data (merchant must configure the app)'
-        })
-      }
-      sCepOrigem = config.zip.replace(/\D/g, '')
-    } else {
-      sCepOrigem = params.from.zip.replace(/\D/g, '')
+    if (!sCepOrigem) {
+      // must have configured origin zip code to continue
+      return res.status(400).send({
+        error: 'CALCULATE_ERR',
+        message: 'Zip code is unset on app hidden data (merchant must configure the app)'
+      })
     }
 
     // optinal predefined or configured service codes
@@ -426,8 +433,7 @@ module.exports = appSdk => {
                   if (
                     rule &&
                     (!rule.service_code || rule.service_code === Codigo) &&
-                    (!rule.zip_range ||
-                      (rule.zip_range.min <= sCepDestino && rule.zip_range.max >= sCepDestino)) &&
+                    checkZipCode(rule) &&
                     !(rule.min_amount > nVlValorDeclarado)
                   ) {
                     // valid shipping rule
