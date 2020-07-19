@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.10](https://github.com/ecomplus/app-correios/compare/v1.0.9...v1.0.10) (2020-07-19)
+
+
+### Bug Fixes
+
+* **offline-data:** random sort contracts, update debugs ([e6a9e87](https://github.com/ecomplus/app-correios/commit/e6a9e87dd2208e4244801c056a1675733ca9a751))
+
 ### [1.0.9](https://github.com/ecomplus/app-correios/compare/v1.0.8...v1.0.9) (2020-06-23)
 
 
