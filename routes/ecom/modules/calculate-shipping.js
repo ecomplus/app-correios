@@ -125,7 +125,7 @@ module.exports = appSdk => {
     if (params.items) {
       params.items.forEach(({ price, quantity, dimensions, weight }) => {
         let physicalWeight = 0
-        let cubicWeight = 1
+        let cubicWeight = 0
         if (!params.subtotal) {
           nVlValorDeclarado += price * quantity
         }
@@ -175,10 +175,12 @@ module.exports = appSdk => {
           // (C x L x A) / 6.000
           for (const side in sumDimensions) {
             if (sumDimensions[side]) {
-              cubicWeight *= sumDimensions[side]
+              cubicWeight = cubicWeight > 0
+                ? cubicWeight * sumDimensions[side]
+                : sumDimensions[side]
             }
           }
-          if (cubicWeight > 1) {
+          if (cubicWeight > 0) {
             cubicWeight /= 6000
           }
         }
@@ -399,8 +401,9 @@ module.exports = appSdk => {
                 own_hand_price: ValorMaoPropria,
                 receipt: Boolean(sCdAvisoRecebimento),
                 receipt_price: ValorAvisoRecebimento,
-                discount: 0,
-                total_price: Valor,
+                // free shipping if all items has no weigth
+                total_price: nVlPeso > 0 ? Valor : 0,
+                discount: nVlPeso > 0 ? 0 : Valor,
                 delivery_time: {
                   days: PrazoEntrega,
                   working_days: true
