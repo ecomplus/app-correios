@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.12](https://github.com/ecomplus/app-correios/compare/v1.0.11...v1.0.12) (2020-07-19)
+
+
+### Bug Fixes
+
+* **correios-offline:** fix deleting document with DocumentReference ([b7a4108](https://github.com/ecomplus/app-correios/commit/b7a4108d9f348d821933673ba405fd93bc7eedae))
+
 ### [1.0.11](https://github.com/ecomplus/app-correios/compare/v1.0.10...v1.0.11) (2020-07-19)
 
 
