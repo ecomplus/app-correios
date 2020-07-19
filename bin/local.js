@@ -42,14 +42,14 @@ const correiosOfflineTask = isFirst => {
     updateCorreiosOfflineDatabase().finally(() => {
       logger.log('End Correios Offline database update')
       correiosOfflineTask()
+
+      // clear documents older than 120 days ago
+      const date = new Date()
+      date.setDate(date.getDate() - 120)
+      correiosOfflineClient.deleteBeforeDate(date)
+      logger.log(`Clearing offline data before date ${date.toISOString()}`)
     })
     logger.log('Update Correios Offline started')
-
-    // clear documents older than 120 days ago
-    const date = new Date()
-    date.setDate(date.getDate() - 120)
-    correiosOfflineClient.deleteBeforeDate(date)
-    logger.log(`Clearing offline data before date ${date.toISOString()}`)
-  }, 1000 * 60 * (isFirst === true ? 1 : 60))
+  }, 1000 * 60 * (isFirst === true ? 1 : 180))
 }
 correiosOfflineTask(true)
