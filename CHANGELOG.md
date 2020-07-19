@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.14](https://github.com/ecomplus/app-correios/compare/v1.0.13...v1.0.14) (2020-07-19)
+
+
+### Bug Fixes
+
+* **correios-offline:** fix body object before run insert to firestore ([b151e9a](https://github.com/ecomplus/app-correios/commit/b151e9a81ba80961ad5d6cd5438e72a8c4bc825e))
+* **correios-offline:** prevent undefined prop 'nCdEmpresa' ([df293ac](https://github.com/ecomplus/app-correios/commit/df293ac6267546573181c8de1e78cc0db2920e04))
+
 ### [1.0.13](https://github.com/ecomplus/app-correios/compare/v1.0.12...v1.0.13) (2020-07-19)
 
 
