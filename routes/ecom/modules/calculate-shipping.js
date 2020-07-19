@@ -387,6 +387,8 @@ module.exports = appSdk => {
                 }
               }
 
+              // free shipping if all items has no weigth
+              const freeNoWeightShipping = nVlPeso <= 0 && config.free_no_weight_shipping
               // parse to E-Com Plus shipping line object
               const shippingLine = {
                 from: {
@@ -401,9 +403,8 @@ module.exports = appSdk => {
                 own_hand_price: ValorMaoPropria,
                 receipt: Boolean(sCdAvisoRecebimento),
                 receipt_price: ValorAvisoRecebimento,
-                // free shipping if all items has no weigth
-                total_price: nVlPeso > 0 ? Valor : 0,
-                discount: nVlPeso > 0 ? 0 : Valor,
+                total_price: freeNoWeightShipping ? 0 : Valor,
+                discount: freeNoWeightShipping ? Valor : 0,
                 delivery_time: {
                   days: PrazoEntrega,
                   working_days: true
