@@ -124,10 +124,13 @@
       "hide": false
     },
     "free_no_weight_shipping": {
-      "type": "boolean",
-      "default": false,
-      "title": "Frete grátis sem peso",
-      "description": "Aplica frete grátis se todos os produtos tiverem peso e dimensões zeradas"
+      "schema": {
+        "type": "boolean",
+        "default": false,
+        "title": "Frete grátis sem peso",
+        "description": "Aplica frete grátis se todos os produtos tiverem peso e dimensões zeradas"
+      },
+      "hide": false
     },
     "shipping_rules": {
       "schema": {
