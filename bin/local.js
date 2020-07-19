@@ -37,7 +37,7 @@ ecomAuth.catch(err => {
 const updateCorreiosOfflineDatabase = require('./../lib/correios-offline/update-database')
 const correiosOfflineClient = require('./../lib/correios-offline/client')
 
-const correiosOfflineTask = () => {
+const correiosOfflineTask = isFirst => {
   setTimeout(() => {
     updateCorreiosOfflineDatabase().finally(() => {
       logger.log('End Correios Offline database update')
@@ -50,6 +50,6 @@ const correiosOfflineTask = () => {
     date.setDate(date.getDate() - 120)
     correiosOfflineClient.deleteBeforeDate(date)
     logger.log(`Clearing offline data before date ${date.toISOString()}`)
-  }, 1000 * 60 * 10)
+  }, 1000 * 60 * (isFirst === true ? 1 : 60))
 }
-correiosOfflineTask()
+correiosOfflineTask(true)
