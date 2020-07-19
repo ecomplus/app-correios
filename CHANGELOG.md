@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.11](https://github.com/ecomplus/app-correios/compare/v1.0.10...v1.0.11) (2020-07-19)
+
+
+### Bug Fixes
+
+* **correios-offline:** delete old documents one by one ([e78c1a7](https://github.com/ecomplus/app-correios/commit/e78c1a79168952926d5a2f28743073746c13c705))
+* **correios-offline:** ensure 'sCepOrigem' is set when updating data ([941040f](https://github.com/ecomplus/app-correios/commit/941040fbe6e00e35b0d3d7545e0456a32ccf13f1))
+
 ### [1.0.10](https://github.com/ecomplus/app-correios/compare/v1.0.9...v1.0.10) (2020-07-19)
 
 
