@@ -208,6 +208,21 @@ module.exports = appSdk => {
           }
         }
 
+        const offlineListParams = {
+          sCepOrigem: nCdEmpresa ? sCepOrigem : findBaseZipCode(sCepOrigem),
+          sCepDestino: findBaseZipCode(sCepDestino),
+          nCdEmpresa,
+          // optinal predefined service code
+          Codigo: params.service_code
+        }
+
+        // mannually handle WS timeout
+        let isTimedOut = false
+        const correiosWsTimer = setTimeout(() => {
+          handleErrors(new Error('WS timed out'))
+          isTimedOut = true
+        }, 9000)
+
         // handle delay to send Correios offline request
         // prefer Correios WS
         let correiosOfflineTimer
@@ -221,25 +236,49 @@ module.exports = appSdk => {
           sCdAvisoRecebimento,
           nVlPeso,
           nVlValorDeclarado
-        }, 9000)
+        })
           .then(result => {
-            clearTimeout(correiosOfflineTimer)
-            resolve(result)
+            if (result) {
+              if (!isTimedOut) {
+                clearTimeout(correiosOfflineTimer)
+                clearTimeout(correiosWsTimer)
+                resolve(result)
+              }
+
+              if (nVlPeso) {
+                // save to offline database
+                try {
+                  const services = Array.isArray(result.Servicos)
+                    ? result.Servicos
+                    : Array.isArray(result.Servicos.cServico)
+                      ? result.Servicos.cServico : [result.Servicos.cServico]
+                  for (let i = 0; i < services.length; i++) {
+                    if (services[i]) {
+                      const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
+                      if (Valor && PrazoEntrega) {
+                        correiosOfflineClient.insert({
+                          ...offlineListParams,
+                          Codigo,
+                          Valor,
+                          PrazoEntrega,
+                          Erro,
+                          MsgErro: '',
+                          nVlPeso
+                        })
+                      }
+                    }
+                  }
+                } catch (e) {
+                  // ignore
+                }
+              }
+            }
           })
           .catch(handleErrors)
 
         if (!config.disable_correios_offline) {
-          const offlineListParams = {
-            sCepOrigem: nCdEmpresa ? sCepOrigem : findBaseZipCode(sCepOrigem),
-            sCepDestino: findBaseZipCode(sCepDestino),
-            nCdEmpresa,
-            // optinal predefined service code
-            Codigo: params.service_code
-          }
-
           if (offlineListParams.sCepOrigem && offlineListParams.sCepDestino) {
             // start timer to send Correios offline request
-            const correiosOfflineDelay = config.correios_offline_delay || 4000
             correiosOfflineTimer = setTimeout(() => {
               logger.log(`Trying Correios Offline for #${offlineListParams.sCepOrigem}`)
               correiosOfflineClient.list(offlineListParams)
@@ -284,7 +323,7 @@ module.exports = appSdk => {
                 })
 
                 .catch(handleErrors)
-            }, correiosOfflineDelay)
+            }, 4000)
           }
         }
       })
