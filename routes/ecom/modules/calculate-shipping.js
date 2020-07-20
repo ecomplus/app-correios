@@ -245,32 +245,30 @@ module.exports = appSdk => {
                 resolve(result)
               }
 
-              if (nVlPeso) {
-                // save to offline database
-                try {
-                  const services = Array.isArray(result.Servicos)
-                    ? result.Servicos
-                    : Array.isArray(result.Servicos.cServico)
-                      ? result.Servicos.cServico : [result.Servicos.cServico]
-                  for (let i = 0; i < services.length; i++) {
-                    if (services[i]) {
-                      const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
-                      if (Valor && PrazoEntrega) {
-                        correiosOfflineClient.insert({
-                          ...offlineListParams,
-                          Codigo,
-                          Valor,
-                          PrazoEntrega,
-                          Erro,
-                          MsgErro: '',
-                          nVlPeso
-                        })
-                      }
+              // save to offline database
+              try {
+                const services = Array.isArray(result.Servicos)
+                  ? result.Servicos
+                  : Array.isArray(result.Servicos.cServico)
+                    ? result.Servicos.cServico : [result.Servicos.cServico]
+                for (let i = 0; i < services.length; i++) {
+                  if (services[i]) {
+                    const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
+                    if (Valor && PrazoEntrega) {
+                      correiosOfflineClient.insert({
+                        ...offlineListParams,
+                        nVlPeso: nVlPeso > 0.1 ? nVlPeso : 0.1,
+                        Codigo,
+                        Valor,
+                        PrazoEntrega,
+                        Erro,
+                        MsgErro: ''
+                      })
                     }
                   }
-                } catch (e) {
-                  // ignore
                 }
+              } catch (e) {
+                // ignore
               }
             }
           })
