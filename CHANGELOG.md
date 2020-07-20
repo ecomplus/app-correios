@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomplus/app-correios/compare/v1.0.14...v1.1.0) (2020-07-20)
+
+
+### Features
+
+* **calculate-shipping:** free shipping if all items has no weigth ([#6](https://github.com/ecomplus/app-correios/issues/6)) ([4e53c0e](https://github.com/ecomplus/app-correios/commit/4e53c0e72941b3afc503d86340809d15efe8854e))
+* **calculate-shipping:** mannually handle WS timeout, save to offline ([ad61cbd](https://github.com/ecomplus/app-correios/commit/ad61cbded7609f6317bbd3154c2900d7133541eb))
+
+
+### Bug Fixes
+
+* **application:** fix admin settings object ('free_no_weight_shipping') ([0d2fa21](https://github.com/ecomplus/app-correios/commit/0d2fa21245b44c9068af51fd122c8663b0ab2c54))
+* **calculate-shipping:** free shipping for zero weight if configured ([607fcd3](https://github.com/ecomplus/app-correios/commit/607fcd3506e656deed392d372421a53e6ada546f))
+* **update-by-contract:** ensure stop weight loop on 50kg once ([c4d1871](https://github.com/ecomplus/app-correios/commit/c4d187120b1cda822c52f8b341d7b0b844eec43c))
+* **update-by-contract:** ensure stop weight loop on 50kg once ([9b045f4](https://github.com/ecomplus/app-correios/commit/9b045f4d8e46d12c3a8ffb012cbb6cfab3481088))
+* **update-by-contract:** fix handling calculate errors to skip contracts ([d89cc0a](https://github.com/ecomplus/app-correios/commit/d89cc0a6d07f9e8872940726e2c449ec8a19e82c))
+* **update-by-contract:** fix skipping response services with errors ([4060b8e](https://github.com/ecomplus/app-correios/commit/4060b8ec066df958b2783f788c0ab70b8f8f0493))
+* **update-by-contract:** prevent multiple zip codes queue at same time ([f88c4db](https://github.com/ecomplus/app-correios/commit/f88c4db488cf3beec228900358b9f4ec8e7eecfd))
+
 ### [1.0.14](https://github.com/ecomplus/app-correios/compare/v1.0.13...v1.0.14) (2020-07-19)
 
 
