@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/ecomplus/app-correios/compare/v1.1.0...v1.1.1) (2020-07-21)
+
+
+### Bug Fixes
+
+* **update-database:** prevent exiting loop (async) function ([9cc48a8](https://github.com/ecomplus/app-correios/commit/9cc48a8204604763269e084c0d7b9d7ceae1faa6))
+
 ## [1.1.0](https://github.com/ecomplus/app-correios/compare/v1.0.14...v1.1.0) (2020-07-20)
 
 
