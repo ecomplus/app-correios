@@ -52,6 +52,6 @@ const correiosOfflineTask = isFirst => {
     date.setDate(date.getDate() - 120)
     correiosOfflineClient.deleteBeforeDate(date)
     logger.log(`Clearing offline data before date ${date.toISOString()}`)
-  }, 1000 * 60 * (isFirst === true ? 1 : 180))
+  }, 1000 * 60 * (isFirst === true ? 1 : 60 * 12))
 }
 correiosOfflineTask(true)
