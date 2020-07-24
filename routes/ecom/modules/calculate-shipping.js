@@ -20,6 +20,9 @@ const findBaseZipCode = zipCode => {
   return null
 }
 
+// store Correios WS temporary state
+let isWsSlow = false
+
 module.exports = appSdk => {
   return (req, res) => {
     // body was already pre-validated on @/bin/web.js
@@ -220,7 +223,7 @@ module.exports = appSdk => {
         let isTimedOut = false
         const correiosWsTimer = setTimeout(() => {
           handleErrors(new Error('WS timed out'))
-          isTimedOut = true
+          isWsSlow = isTimedOut = true
         }, 9000)
 
         // handle delay to send Correios offline request
@@ -243,6 +246,7 @@ module.exports = appSdk => {
                 clearTimeout(correiosOfflineTimer)
                 clearTimeout(correiosWsTimer)
                 resolve(result)
+                isWsSlow = false
               }
 
               // save to offline database
@@ -321,7 +325,7 @@ module.exports = appSdk => {
                 })
 
                 .catch(handleErrors)
-            }, 4000)
+            }, isWsSlow ? 1500 : 4000)
           }
         }
       })
