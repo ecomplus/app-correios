@@ -458,7 +458,7 @@ module.exports = appSdk => {
               }
 
               // check for default configured additional/discount price
-              if (config.additional_price) {
+              if (typeof config.additional_price === 'number' && config.additional_price) {
                 if (config.additional_price > 0) {
                   shippingLine.other_additionals = [{
                     tag: 'additional_price',
@@ -493,10 +493,12 @@ module.exports = appSdk => {
                       if (rule.discount.percentage) {
                         discountValue *= (shippingLine.total_price / 100)
                       }
-                      shippingLine.discount += discountValue
-                      shippingLine.total_price -= discountValue
-                      if (shippingLine.total_price < 0) {
-                        shippingLine.total_price = 0
+                      if (discountValue) {
+                        shippingLine.discount += discountValue
+                        shippingLine.total_price -= discountValue
+                        if (shippingLine.total_price < 0) {
+                          shippingLine.total_price = 0
+                        }
                       }
                       break
                     }
