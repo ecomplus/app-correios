@@ -444,8 +444,8 @@ module.exports = appSdk => {
                 own_hand_price: ValorMaoPropria,
                 receipt: Boolean(sCdAvisoRecebimento),
                 receipt_price: ValorAvisoRecebimento,
-                total_price: freeNoWeightShipping ? 0 : Valor,
-                discount: freeNoWeightShipping ? Valor : 0,
+                total_price: (!freeNoWeightShipping && Valor) || 0,
+                discount: (freeNoWeightShipping && Valor) || 0,
                 delivery_time: {
                   days: PrazoEntrega,
                   working_days: true
