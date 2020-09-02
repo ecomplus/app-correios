@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/ecomplus/app-correios/compare/v1.1.5...v1.1.6) (2020-09-02)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** handling Correios error '010' ([#9](https://github.com/ecomplus/app-correios/issues/9)) ([a0bef06](https://github.com/ecomplus/app-correios/commit/a0bef061a9a2e9ebad62ac5ec870c1931f3e8018))
+
 ### [1.1.5](https://github.com/ecomplus/app-correios/compare/v1.1.4...v1.1.5) (2020-08-10)
 
 
