@@ -349,9 +349,15 @@ module.exports = appSdk => {
           services.forEach(service => {
             // check error first
             let { Erro, MsgErro, PrazoEntrega, url } = service
+            let notes
             PrazoEntrega = parseInt(PrazoEntrega, 10)
             // known Correios errors
             switch (Erro) {
+              case '010':
+              case 10:
+                Erro = false
+                notes = MsgErro
+                break
               case '011':
               case 11:
                 Erro = false
@@ -454,7 +460,8 @@ module.exports = appSdk => {
                   days: 3,
                   ...config.posting_deadline
                 },
-                flags: [fromOffline ? 'correios-offline' : 'correios-ws']
+                flags: [fromOffline ? 'correios-offline' : 'correios-ws'],
+                notes
               }
 
               // check for default configured additional/discount price
