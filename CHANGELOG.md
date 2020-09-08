@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/ecomplus/app-correios/compare/v1.1.6...v1.1.7) (2020-09-08)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** ignoring cubic weight when lower than 5kg ([#10](https://github.com/ecomplus/app-correios/issues/10)) ([ce91bcb](https://github.com/ecomplus/app-correios/commit/ce91bcb8ea92c5e078347e3038a4540a95747d36))
+
 ### [1.1.6](https://github.com/ecomplus/app-correios/compare/v1.1.5...v1.1.6) (2020-09-02)
 
 
