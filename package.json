@@ -12,11 +12,11 @@
     "publish:market": "node ./scripts/market-publication.js"
   },
   "dependencies": {
-    "@ecomplus/application-sdk": "^11.0.0-sqlite.1.13.0",
-    "axios": "0.x",
+    "@ecomplus/application-sdk": "^11.0.0-sqlite.1.13.1",
+    "axios": "^0.20.0",
     "console-files": "2.x",
     "express": "4.x",
-    "firebase-admin": "^8.12.1",
+    "firebase-admin": "^8.13.0",
     "sqlite3": "^4.2.0",
     "xml2json": "0.x"
   },
