@@ -187,7 +187,7 @@ module.exports = appSdk => {
             cubicWeight /= 6000
           }
         }
-        nVlPeso += (quantity * (cubicWeight < 10 ? physicalWeight : physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
+        nVlPeso += (quantity * (cubicWeight < 5 || physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
       })
 
       // pre check for maximum allowed declared value
