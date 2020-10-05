@@ -126,6 +126,27 @@ module.exports = appSdk => {
 
     // calculate weight and pkg value from items list
     if (params.items) {
+      const pkg = {
+        dimensions: {
+          width: {
+            value: 0,
+            unit: 'cm'
+          },
+          height: {
+            value: 0,
+            unit: 'cm'
+          },
+          length: {
+            value: 0,
+            unit: 'cm'
+          }
+        },
+        weight: {
+          value: 0,
+          unit: 'kg'
+        }
+      }
+
       params.items.forEach(({ price, quantity, dimensions, weight }) => {
         let physicalWeight = 0
         let cubicWeight = 0
@@ -145,6 +166,7 @@ module.exports = appSdk => {
             case 'mg':
               physicalWeight = weight.value / 1000000
           }
+          pkg.weight.value += physicalWeight
         }
 
         // sum total items dimensions to calculate cubic weight
@@ -181,6 +203,7 @@ module.exports = appSdk => {
               cubicWeight = cubicWeight > 0
                 ? cubicWeight * sumDimensions[side]
                 : sumDimensions[side]
+              pkg.dimensions[side].value += sumDimensions[side]
             }
           }
           if (cubicWeight > 0) {
@@ -443,6 +466,7 @@ module.exports = appSdk => {
                   zip: sCepOrigem
                 },
                 to: params.to,
+                package: pkg,
                 price: ValorSemAdicionais || Valor,
                 declared_value: nVlValorDeclarado,
                 declared_value_price: ValorValorDeclarado || 0,
