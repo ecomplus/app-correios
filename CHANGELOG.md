@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.8](https://github.com/ecomplus/app-correios/compare/v1.1.7...v1.1.8) (2020-10-05)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** returning package dimensions and weight ([65b4d20](https://github.com/ecomplus/app-correios/commit/65b4d2001d6ed8e51259e12409ffbdcb3fe7078d))
+* **calculate-shipping:** returning package info (x quantity) ([85d6592](https://github.com/ecomplus/app-correios/commit/85d6592c910774c8702cd21ee914eb72ccdc3b32))
+
 ### [1.1.7](https://github.com/ecomplus/app-correios/compare/v1.1.6...v1.1.7) (2020-09-08)
 
 
