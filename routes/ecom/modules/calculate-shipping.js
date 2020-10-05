@@ -166,7 +166,7 @@ module.exports = appSdk => {
             case 'mg':
               physicalWeight = weight.value / 1000000
           }
-          pkg.weight.value += physicalWeight
+          pkg.weight.value += physicalWeight * quantity
         }
 
         // sum total items dimensions to calculate cubic weight
@@ -203,7 +203,7 @@ module.exports = appSdk => {
               cubicWeight = cubicWeight > 0
                 ? cubicWeight * sumDimensions[side]
                 : sumDimensions[side]
-              pkg.dimensions[side].value += sumDimensions[side]
+              pkg.dimensions[side].value += sumDimensions[side] * quantity
             }
           }
           if (cubicWeight > 0) {
