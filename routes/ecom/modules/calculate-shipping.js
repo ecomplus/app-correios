@@ -52,7 +52,8 @@ module.exports = appSdk => {
     }
 
     const sCepDestino = params.to ? params.to.zip.replace(/\D/g, '') : ''
-    const sCepOrigem = params.from ? params.from.zip.replace(/\D/g, '')
+    const sCepOrigem = params.from
+      ? params.from.zip.replace(/\D/g, '')
       : config.zip ? config.zip.replace(/\D/g, '') : ''
 
     const checkZipCode = rule => {
@@ -277,7 +278,8 @@ module.exports = appSdk => {
                 const services = Array.isArray(result.Servicos)
                   ? result.Servicos
                   : Array.isArray(result.Servicos.cServico)
-                    ? result.Servicos.cServico : [result.Servicos.cServico]
+                    ? result.Servicos.cServico
+                    : [result.Servicos.cServico]
                 for (let i = 0; i < services.length; i++) {
                   if (services[i]) {
                     const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
@@ -457,8 +459,6 @@ module.exports = appSdk => {
                 }
               }
 
-              // free shipping if all items has no weigth
-              const freeNoWeightShipping = nVlPeso <= 0 && config.free_no_weight_shipping
               // parse to E-Com Plus shipping line object
               const shippingLine = {
                 from: {
@@ -474,8 +474,8 @@ module.exports = appSdk => {
                 own_hand_price: ValorMaoPropria,
                 receipt: Boolean(sCdAvisoRecebimento),
                 receipt_price: ValorAvisoRecebimento,
-                total_price: (!freeNoWeightShipping && Valor) || 0,
-                discount: (freeNoWeightShipping && Valor) || 0,
+                discount: 0,
+                total_price: Valor,
                 delivery_time: {
                   days: PrazoEntrega,
                   working_days: true
@@ -569,14 +569,37 @@ module.exports = appSdk => {
             }
           })
 
-          return !response.shipping_services.length && errorMsg
+          if (response.shipping_services.length) {
+            // free shipping if all items has no weigth
+            const freeNoWeightShipping = nVlPeso <= 0 && config.free_no_weight_shipping
+            if (freeNoWeightShipping) {
+              let cheapestShippingLine
+              for (let i = 0; i < response.shipping_services.length; i++) {
+                const shippingLine = response.shipping_services[i]
+                if (!shippingLine.total_price) {
+                  // already free
+                  break
+                }
+                if (!cheapestShippingLine || cheapestShippingLine.total_price > shippingLine.total_price) {
+                  cheapestShippingLine = shippingLine
+                }
+              }
+              if (cheapestShippingLine) {
+                // set the cheapest shipping line free
+                cheapestShippingLine.discount = cheapestShippingLine.total_price
+                cheapestShippingLine.total_price = 0
+              }
+            }
+          } else if (errorMsg) {
             // pass Correios error message
-            ? res.status(400).send({
+            return res.status(400).send({
               error: 'CALCULATE_ERR_MSG',
               message: errorMsg
             })
-            // success response with available shipping services
-            : res.send(response)
+          }
+
+          // success response with available shipping services
+          return res.send(response)
         }
 
         // unexpected result object
