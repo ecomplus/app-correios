@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.9](https://github.com/ecomplus/app-correios/compare/v1.1.8...v1.1.9) (2020-11-18)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** set only the cheapest shipping line free when no weight ([#11](https://github.com/ecomplus/app-correios/issues/11)) ([6d2e62d](https://github.com/ecomplus/app-correios/commit/6d2e62de068ee72a3af86286d4204399d53591f8))
+* **deps:** update non-major and dev deps ([d585611](https://github.com/ecomplus/app-correios/commit/d585611ce17661a3159a773f0a0cf4c4627dee43))
+
 ### [1.1.8](https://github.com/ecomplus/app-correios/compare/v1.1.7...v1.1.8) (2020-10-05)
 
 
