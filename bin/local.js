@@ -43,10 +43,10 @@ const correiosOfflineTask = isFirst => {
     const shouldUpdateAll = countOfflineTask % 14 === 0
     logger.log('Update Correios Offline started')
     updateCorreiosOfflineDatabase(shouldUpdateAll)
-      .catch(logger.error)
       .then(() => {
         countOfflineTask++
       })
+      .catch(logger.error)
       .finally(() => {
         logger.log('End Correios Offline database update')
         correiosOfflineTask()
