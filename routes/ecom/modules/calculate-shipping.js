@@ -226,7 +226,7 @@ module.exports = appSdk => {
         const handleErrors = err => {
           countErrors++
           errorMsg += `- ${err.message}`
-          if (countErrors === 2) {
+          if (countErrors === 2 && !res.headerSent) {
             // both WS and offline failed
             return res.status(400).send({
               error: 'CALCULATE_FAILED',
@@ -248,7 +248,7 @@ module.exports = appSdk => {
         const correiosWsTimer = setTimeout(() => {
           handleErrors(new Error('WS timed out'))
           isWsSlow = isTimedOut = true
-        }, 9000)
+        }, 8000)
 
         // handle delay to send Correios offline request
         // prefer Correios WS
