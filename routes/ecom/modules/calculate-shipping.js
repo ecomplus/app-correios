@@ -246,6 +246,7 @@ module.exports = appSdk => {
         // mannually handle WS timeout
         let isTimedOut = false
         const correiosWsTimer = setTimeout(() => {
+          logger.log('Correios WS timed out')
           handleErrors(new Error('WS timed out'))
           isWsSlow = isTimedOut = true
         }, 8000)
@@ -350,7 +351,7 @@ module.exports = appSdk => {
                 })
 
                 .catch(handleErrors)
-            }, isWsSlow ? 1500 : 4000)
+            }, isWsSlow ? 500 : 4000)
           }
         }
       })
