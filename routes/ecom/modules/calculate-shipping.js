@@ -351,7 +351,7 @@ module.exports = appSdk => {
                 })
 
                 .catch(handleErrors)
-            }, isWsSlow ? 500 : 4000)
+            }, isWsSlow ? 1500 : 4000)
           }
         }
       })
