@@ -211,7 +211,9 @@ module.exports = appSdk => {
             cubicWeight /= 6000
           }
         }
-        nVlPeso += (quantity * (cubicWeight < 5 || physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
+        if (!config.free_no_weight_shipping || physicalWeight > 0) {
+          nVlPeso += (quantity * (cubicWeight < 5 || physicalWeight > cubicWeight ? physicalWeight : cubicWeight))
+        }
       })
 
       // pre check for maximum allowed declared value
@@ -576,7 +578,7 @@ module.exports = appSdk => {
             if (freeNoWeightShipping) {
               let cheapestShippingLine
               for (let i = 0; i < response.shipping_services.length; i++) {
-                const shippingLine = response.shipping_services[i]
+                const shippingLine = response.shipping_services[i].shipping_line
                 if (!shippingLine.total_price) {
                   // already free
                   break
@@ -589,6 +591,7 @@ module.exports = appSdk => {
                 // set the cheapest shipping line free
                 cheapestShippingLine.discount = cheapestShippingLine.total_price
                 cheapestShippingLine.total_price = 0
+                cheapestShippingLine.flags.push('free_no_weight')
               }
             }
           } else if (errorMsg) {
