@@ -228,7 +228,7 @@ module.exports = appSdk => {
         const handleErrors = err => {
           countErrors++
           errorMsg += `- ${err.message}`
-          if (countErrors === 2 && !res.headerSent) {
+          if (countErrors === 2 && !res.headersSent) {
             // both WS and offline failed
             return res.status(400).send({
               error: 'CALCULATE_FAILED',
