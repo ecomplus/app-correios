@@ -3,7 +3,7 @@
   "private": true,
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "E-Com Plus app to integrate Correios calculator",
   "main": "main.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "dotenv": "^8.6.0",
     "husky": "^3.1.0",
     "standard": "^16.0.3",
-    "standard-version": "^7.0.0"
+    "standard-version": "^9.3.1"
   },
   "husky": {
     "hooks": {

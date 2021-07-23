@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.16](https://github.com/ecomplus/app-correios/compare/v1.1.15...v1.1.16) (2021-07-23)
+
+
+### Bug Fixes
+
+* **calculate-shipping:** prevent returning negative declared value price ([02acda0](https://github.com/ecomplus/app-correios/commit/02acda0bc68af6951bfb7b90c4ecf7993822414e))
+
 ### [1.1.15](https://github.com/ecomplus/app-correios/compare/v1.1.14...v1.1.15) (2021-06-29)
 
 
