@@ -472,7 +472,7 @@ module.exports = appSdk => {
                 package: pkg,
                 price: ValorSemAdicionais || Valor,
                 declared_value: nVlValorDeclarado,
-                declared_value_price: ValorValorDeclarado || 0,
+                declared_value_price: ValorValorDeclarado > 0 ? ValorValorDeclarado : 0,
                 own_hand: Boolean(sCdMaoPropria),
                 own_hand_price: ValorMaoPropria,
                 receipt: Boolean(sCdAvisoRecebimento),
