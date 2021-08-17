@@ -406,7 +406,7 @@ module.exports = appSdk => {
                   case 'number':
                     break
                   case 'string':
-                    service[field] = parseFloat(service[field].replace(',', '.'))
+                    service[field] = parseFloat(service[field].replace('.', '').replace(',', '.'))
                     break
                   default:
                     service[field] = 0
