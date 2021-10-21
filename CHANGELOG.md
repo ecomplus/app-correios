@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.18](https://github.com/ecomplus/app-correios/compare/v1.1.17...v1.1.18) (2021-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/application-sdk to v1.15.5 firestore ([2719e4d](https://github.com/ecomplus/app-correios/commit/2719e4d3dd0eaeed82c38098c3f7bdfd340ebb93))
+
 ### [1.1.17](https://github.com/ecomplus/app-correios/compare/v1.1.16...v1.1.17) (2021-08-17)
 
 
