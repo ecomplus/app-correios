@@ -246,12 +246,16 @@ module.exports = appSdk => {
         }
 
         // mannually handle WS timeout
+        const timeout = 8000
         let isTimedOut = false
-        const correiosWsTimer = setTimeout(() => {
-          logger.log('Correios WS timed out')
-          handleErrors(new Error('WS timed out'))
-          isWsSlow = isTimedOut = true
-        }, 8000)
+        let correiosWsTimer = setTimeout(() => {
+          isWsSlow = true
+          correiosWsTimer = setTimeout(() => {
+            logger.log('Correios WS timed out')
+            handleErrors(new Error('WS timed out'))
+            isTimedOut = true
+          }, timeout - 4000)
+        }, 4000)
 
         // handle delay to send Correios offline request
         // prefer Correios WS
@@ -266,7 +270,7 @@ module.exports = appSdk => {
           sCdAvisoRecebimento,
           nVlPeso,
           nVlValorDeclarado
-        })
+        }, timeout)
           .then(result => {
             if (result) {
               if (!isTimedOut) {
@@ -353,7 +357,7 @@ module.exports = appSdk => {
                 })
 
                 .catch(handleErrors)
-            }, isWsSlow ? 1500 : 4000)
+            }, isWsSlow ? 300 : 3000)
           }
         }
       })
