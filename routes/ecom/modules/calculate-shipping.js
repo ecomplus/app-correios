@@ -491,7 +491,7 @@ module.exports = appSdk => {
                   days: 3,
                   ...config.posting_deadline
                 },
-                flags: [fromOffline ? 'correios-offline' : 'correios-ws'],
+                flags: [`correios-${(fromOffline ? 'offline' : 'ws')}`, `correios-${(isWsSlow ? 'slow' : 'normal')}`],
                 notes
               }
 
