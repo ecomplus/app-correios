@@ -21,12 +21,12 @@
     "xml2json": "0.x"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
     "dotenv": "^8.6.0",
-    "husky": "^3.1.0",
-    "standard": "^16.0.3",
-    "standard-version": "^9.3.1"
+    "husky": "^4.3.8",
+    "standard": "^16.0.4",
+    "standard-version": "^9.3.2"
   },
   "husky": {
     "hooks": {
