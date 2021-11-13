@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.24](https://github.com/ecomplus/app-correios/compare/v1.1.23...v1.1.24) (2021-11-13)
+
+
+### Bug Fixes
+
+* **correios-ws:** deal with ws service unavailable (with response status 200) ([eb0a082](https://github.com/ecomplus/app-correios/commit/eb0a0829568453b91ad2c50062255ea1e4f01cb4))
+
 ### [1.1.23](https://github.com/ecomplus/app-correios/compare/v1.1.22...v1.1.23) (2021-11-13)
 
 
