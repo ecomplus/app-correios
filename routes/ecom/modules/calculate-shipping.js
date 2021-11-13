@@ -282,7 +282,7 @@ module.exports = appSdk => {
 
               // save to offline database
               try {
-                const services = result.Servicos
+                const { services } = result
                 for (let i = 0; i < services.length; i++) {
                   if (services[i]) {
                     const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
