@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.22](https://github.com/ecomplus/app-correios/compare/v1.1.21...v1.1.22) (2021-11-13)
+
+
+### Bug Fixes
+
+* **correios-ws:** fix parsing result object to promise payload ([e49d19a](https://github.com/ecomplus/app-correios/commit/e49d19aacae50d1e9d5465a356c0977026f58173))
+
 ### [1.1.21](https://github.com/ecomplus/app-correios/compare/v1.1.20...v1.1.21) (2021-11-13)
 
 
