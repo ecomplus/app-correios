@@ -282,11 +282,7 @@ module.exports = appSdk => {
 
               // save to offline database
               try {
-                const services = Array.isArray(result.Servicos)
-                  ? result.Servicos
-                  : Array.isArray(result.Servicos.cServico)
-                    ? result.Servicos.cServico
-                    : [result.Servicos.cServico]
+                const services = result.Servicos
                 for (let i = 0; i < services.length; i++) {
                   if (services[i]) {
                     const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
