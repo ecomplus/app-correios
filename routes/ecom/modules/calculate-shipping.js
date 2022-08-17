@@ -115,7 +115,7 @@ module.exports = appSdk => {
     }
 
     // optional params to Correios services
-    if (params.subtotal) {
+    if (params.subtotal && !config.no_declare_value) {
       nVlValorDeclarado = params.subtotal
     }
     if (params.own_hand) {
@@ -515,7 +515,7 @@ module.exports = appSdk => {
                     rule &&
                     (!rule.service_code || rule.service_code === Codigo) &&
                     checkZipCode(rule) &&
-                    !(rule.min_amount > nVlValorDeclarado)
+                    !(rule.min_amount > params.subtotal)
                   ) {
                     // valid shipping rule
                     if (rule.free_shipping) {
