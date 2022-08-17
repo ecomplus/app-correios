@@ -286,7 +286,7 @@ module.exports = appSdk => {
                 for (let i = 0; i < services.length; i++) {
                   if (services[i]) {
                     const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
-                    if (Valor && PrazoEntrega) {
+                    if (Valor && PrazoEntrega >= 0) {
                       correiosOfflineClient.insert({
                         ...offlineListParams,
                         nVlPeso: nVlPeso > 0.1 ? nVlPeso : 0.1,
@@ -393,7 +393,7 @@ module.exports = appSdk => {
                 break
             }
 
-            if ((!Erro || Erro === '0') && PrazoEntrega > 0) {
+            if ((!Erro || Erro === '0') && PrazoEntrega >= 0) {
               // fix price strings to number
               ;[
                 'Valor',
