@@ -132,6 +132,15 @@
       },
       "hide": false
     },
+    "no_declare_value": {
+      "schema": {
+        "type": "boolean",
+        "default": false,
+        "title": "Desabilitar declaração de valor",
+        "description": "Ao selecionado, não será declarado valor do pedido"
+      },
+      "hide": false
+    },
     "shipping_rules": {
       "schema": {
         "title": "Regras de envio",
