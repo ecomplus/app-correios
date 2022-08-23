@@ -393,7 +393,7 @@ module.exports = appSdk => {
                 break
             }
 
-            if ((!Erro || Erro === '0') && PrazoEntrega > 0) {
+            if ((!Erro || Erro === '0') && PrazoEntrega >= 0) {
               // fix price strings to number
               ;[
                 'Valor',
