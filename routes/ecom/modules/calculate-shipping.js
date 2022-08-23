@@ -286,7 +286,8 @@ module.exports = appSdk => {
                 for (let i = 0; i < services.length; i++) {
                   if (services[i]) {
                     const { Codigo, Valor, PrazoEntrega, Erro } = services[i]
-                    if (Valor && PrazoEntrega >= 0) {
+                    if (Valor && PrazoEntrega) {
+
                       correiosOfflineClient.insert({
                         ...offlineListParams,
                         nVlPeso: nVlPeso > 0.1 ? nVlPeso : 0.1,
