@@ -151,7 +151,7 @@ module.exports = appSdk => {
       params.items.forEach(({ price, quantity, dimensions, weight }) => {
         let physicalWeight = 0
         let cubicWeight = 0
-        if (!params.subtotal) {
+        if (!params.subtotal && !config.no_declare_value) {
           nVlValorDeclarado += price * quantity
         }
 
