@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ecomplus/app-correios/compare/v1.1.24...v1.2.0) (2022-08-23)
+
+
+### Features
+
+* **admin-settings:** insert option to skip declared value ([#14](https://github.com/ecomplus/app-correios/issues/14)) ([1c393c1](https://github.com/ecomplus/app-correios/commit/1c393c1a5ee286cc633c225b956448f08e010f23))
+
+
+### Bug Fixes
+
+* **calculate-shipping:** allow delivery time equals to zero ([#13](https://github.com/ecomplus/app-correios/issues/13)) ([7ba7e02](https://github.com/ecomplus/app-correios/commit/7ba7e023b56cb3a0a976ff2e2fb21c534fd4669c))
+
 ### [1.1.24](https://github.com/ecomplus/app-correios/compare/v1.1.23...v1.1.24) (2021-11-13)
 
 
