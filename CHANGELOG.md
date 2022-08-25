@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/ecomplus/app-correios/compare/v1.2.0...v1.2.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* **calculate:** change to minimum declare value accepted ([#17](https://github.com/ecomplus/app-correios/issues/17)) ([b192068](https://github.com/ecomplus/app-correios/commit/b1920684ca131d85e7c700c2f258e103ea9cf9eb))
+
 ## [1.2.0](https://github.com/ecomplus/app-correios/compare/v1.1.24...v1.2.0) (2022-08-23)
 
 
