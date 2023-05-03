@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/ecomplus/app-correios/compare/v1.2.1...v1.2.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* update ws params with disabled declared value and min for contract codes ([1a8ec1c](https://github.com/ecomplus/app-correios/commit/1a8ec1cc07e445a8a3152d763d553498d5c7808d))
+
 ### [1.2.1](https://github.com/ecomplus/app-correios/compare/v1.2.0...v1.2.1) (2022-08-25)
 
 
